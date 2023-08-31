@@ -1,0 +1,28 @@
+warning in stationary: failed to import cython module: falling back to numpy
+warning in coregionalize: failed to import cython module: falling back to numpy
+warning in choleskies: failed to import cython module: falling back to numpy
+start_time  Wed Aug  2 18:19:06 2023
+iter  0
+Traceback (most recent call last):
+  File "/home/xiawu/project 1.1/BO.py", line 1677, in <module>
+    main()
+  File "/home/xiawu/project 1.1/BO.py", line 1647, in main
+    x_next = myBopt.suggest_next_locations()
+  File "/home/xiawu/.local/lib/python3.10/site-packages/GPyOpt/core/bo.py", line 67, in suggest_next_locations
+    self._update_model(self.normalization_type)
+  File "/home/xiawu/.local/lib/python3.10/site-packages/GPyOpt/core/bo.py", line 253, in _update_model
+    self.model.updateModel(X_inmodel, Y_inmodel, None, None)
+  File "/home/xiawu/.local/lib/python3.10/site-packages/GPyOpt/models/gpmodel.py", line 93, in updateModel
+    self.model.optimize_restarts(num_restarts=self.optimize_restarts, optimizer=self.optimizer, max_iters = self.max_iters, verbose=self.verbose)
+  File "/home/xiawu/.local/lib/python3.10/site-packages/paramz/model.py", line 182, in optimize_restarts
+    raise e
+  File "/home/xiawu/.local/lib/python3.10/site-packages/paramz/model.py", line 171, in optimize_restarts
+    self.randomize()
+  File "/home/xiawu/.local/lib/python3.10/site-packages/GPy/core/__init__.py", line 80, in randomize
+    unfixlist = np.ones((self.size,),dtype=np.bool)
+  File "/home/xiawu/.local/lib/python3.10/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'bool'.
+`np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations. Did you mean: 'bool_'?

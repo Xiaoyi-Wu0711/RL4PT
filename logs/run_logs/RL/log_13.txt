@@ -1,0 +1,36 @@
+start_time  Thu Aug 31 16:19:38 2023
+ simulation is simulation 1 
+ learning_rate  0.01
+ Start training with total steps:  9000
+Using cuda device
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+------------------------------
+ self.episode  0
+seed value  581270
+Logging to ./results/PPO_Thu Aug 31 16:19:38 2023/tensorboards/PPO/PPO_1
+------------------------------
+ self.episode  1
+seed value  251650
+------------------------------
+ self.episode  2
+seed value  766798
+------------------------------
+ self.episode  3
+seed value  770914
+------------------------------
+ self.episode  4
+seed value  799730
+------------------------------
+ self.episode  5
+seed value  915458
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 30       |
+|    ep_rew_mean     | 324      |
+| time/              |          |
+|    fps             | 0        |
+|    iterations      | 1        |
+|    time_elapsed    | 2448     |
+|    total_timesteps | 150      |
+---------------------------------

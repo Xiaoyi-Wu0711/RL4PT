@@ -1,0 +1,7893 @@
+start_time  Mon Jul 31 11:12:58 2023
+== CURRENT SYSTEM INFO ==
+- OS: Linux-5.19.0-45-generic-x86_64-with-glibc2.35 # 46~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Jun 7 15:06:04 UTC 20
+- Python: 3.8.17
+- Stable-Baselines3: 2.0.0
+- PyTorch: 2.0.1+cu117
+- GPU Enabled: True
+- Numpy: 1.24.4
+- Cloudpickle: 2.2.1
+- Gymnasium: 0.28.1
+- OpenAI Gym: 0.26.2
+
+== SAVED MODEL SYSTEM INFO ==
+- OS: Linux-5.19.0-45-generic-x86_64-with-glibc2.35 # 46~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Jun 7 15:06:04 UTC 20
+- Python: 3.8.17
+- Stable-Baselines3: 2.0.0
+- PyTorch: 2.0.1+cu117
+- GPU Enabled: True
+- Numpy: 1.24.4
+- Cloudpickle: 2.2.1
+- Gymnasium: 0.28.1
+- OpenAI Gym: 0.26.2
+
+ Start training with total steps:  9000
+ self.numOfdays  30
+Using cuda device
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+------------------------------
+ self.episode  0
+seed value  237161
+ self.numOfdays  30
+Logging to ./results/PPO_Mon Jul 31 11:12:58 2023/tensorboards/PPO/PPO_1
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  1
+seed value  458387
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  2
+seed value  705701
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  3
+seed value  915646
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  4
+seed value  996806
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  5
+seed value  449236
+ self.numOfdays  30
+----------------------------------
+| rollout/           |           |
+|    ep_len_mean     | 30        |
+|    ep_rew_mean     | -7.35e+06 |
+| time/              |           |
+|    fps             | 0         |
+|    iterations      | 1         |
+|    time_elapsed    | 2504      |
+|    total_timesteps | 150       |
+----------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  6
+seed value  439684
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  7
+seed value  710557
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  8
+seed value  52570
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  9
+seed value  92862
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  10
+seed value  565036
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.4e+06      |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 2             |
+|    time_elapsed         | 5044          |
+|    total_timesteps      | 300           |
+| train/                  |               |
+|    approx_kl            | 1.2318294e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.95e+12      |
+|    n_updates            | 40            |
+|    policy_gradient_loss | -7.49e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.89e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  11
+seed value  471701
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  12
+seed value  215088
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  13
+seed value  426962
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  14
+seed value  186606
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  15
+seed value  837862
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.41e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 3             |
+|    time_elapsed         | 7556          |
+|    total_timesteps      | 450           |
+| train/                  |               |
+|    approx_kl            | 3.8146975e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -3.58e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.68e+12      |
+|    n_updates            | 80            |
+|    policy_gradient_loss | -1.84e-05     |
+|    std                  | 1             |
+|    value_loss           | 8.07e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  16
+seed value  460806
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  17
+seed value  150045
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  18
+seed value  389006
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  19
+seed value  971997
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  20
+seed value  69692
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.39e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 4            |
+|    time_elapsed         | 10051        |
+|    total_timesteps      | 600          |
+| train/                  |              |
+|    approx_kl            | 2.026558e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | -5.96e-07    |
+|    learning_rate        | 0.0001       |
+|    loss                 | 3.36e+12     |
+|    n_updates            | 120          |
+|    policy_gradient_loss | -1.11e-05    |
+|    std                  | 1            |
+|    value_loss           | 8e+12        |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  21
+seed value  846019
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  22
+seed value  397753
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  23
+seed value  634669
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  24
+seed value  24219
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  25
+seed value  89473
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.39e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 5             |
+|    time_elapsed         | 12577         |
+|    total_timesteps      | 750           |
+| train/                  |               |
+|    approx_kl            | 3.5365424e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -7.15e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.01e+12      |
+|    n_updates            | 160           |
+|    policy_gradient_loss | -1.73e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.83e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  26
+seed value  828366
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  27
+seed value  930329
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  28
+seed value  380378
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  29
+seed value  871327
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  30
+seed value  797837
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.38e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 6            |
+|    time_elapsed         | 15107        |
+|    total_timesteps      | 900          |
+| train/                  |              |
+|    approx_kl            | 4.649163e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | -8.34e-07    |
+|    learning_rate        | 0.0001       |
+|    loss                 | 3.64e+12     |
+|    n_updates            | 200          |
+|    policy_gradient_loss | -2.49e-05    |
+|    std                  | 1            |
+|    value_loss           | 7.9e+12      |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  31
+seed value  444446
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  32
+seed value  641541
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  33
+seed value  273268
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  34
+seed value  34317
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  35
+seed value  118953
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.37e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 7             |
+|    time_elapsed         | 17608         |
+|    total_timesteps      | 1050          |
+| train/                  |               |
+|    approx_kl            | 2.3841858e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -8.34e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.83e+12      |
+|    n_updates            | 240           |
+|    policy_gradient_loss | -1.54e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.9e+12       |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  36
+seed value  360217
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  37
+seed value  754945
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  38
+seed value  583393
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  39
+seed value  260280
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  40
+seed value  37336
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.37e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 8             |
+|    time_elapsed         | 20146         |
+|    total_timesteps      | 1200          |
+| train/                  |               |
+|    approx_kl            | 1.2318293e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -7.15e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.79e+12      |
+|    n_updates            | 280           |
+|    policy_gradient_loss | -5.41e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.82e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  41
+seed value  830635
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  42
+seed value  539276
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  43
+seed value  445050
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  44
+seed value  471
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  45
+seed value  311391
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.37e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 9            |
+|    time_elapsed         | 22688        |
+|    total_timesteps      | 1350         |
+| train/                  |              |
+|    approx_kl            | 7.152558e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | -5.96e-07    |
+|    learning_rate        | 0.0001       |
+|    loss                 | 3.07e+12     |
+|    n_updates            | 320          |
+|    policy_gradient_loss | -4.12e-05    |
+|    std                  | 1            |
+|    value_loss           | 7.92e+12     |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  46
+seed value  255334
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  47
+seed value  569889
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  48
+seed value  358520
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  49
+seed value  95228
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  50
+seed value  727023
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.36e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 10            |
+|    time_elapsed         | 25186         |
+|    total_timesteps      | 1500          |
+| train/                  |               |
+|    approx_kl            | 5.1259995e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -5.96e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.62e+12      |
+|    n_updates            | 360           |
+|    policy_gradient_loss | -2.76e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.87e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  51
+seed value  676786
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  52
+seed value  103470
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  53
+seed value  482260
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  54
+seed value  879616
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  55
+seed value  721678
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.37e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 11            |
+|    time_elapsed         | 27681         |
+|    total_timesteps      | 1650          |
+| train/                  |               |
+|    approx_kl            | 1.6291938e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -4.77e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.84e+12      |
+|    n_updates            | 400           |
+|    policy_gradient_loss | -8.06e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.87e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  56
+seed value  589472
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  57
+seed value  191397
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  58
+seed value  42047
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  59
+seed value  350237
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  60
+seed value  376305
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.36e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 12           |
+|    time_elapsed         | 30169        |
+|    total_timesteps      | 1800         |
+| train/                  |              |
+|    approx_kl            | 4.291535e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | -4.77e-07    |
+|    learning_rate        | 0.0001       |
+|    loss                 | 4.1e+12      |
+|    n_updates            | 440          |
+|    policy_gradient_loss | -1.95e-05    |
+|    std                  | 1            |
+|    value_loss           | 8.05e+12     |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  61
+seed value  960496
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  62
+seed value  381296
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  63
+seed value  579215
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  64
+seed value  728290
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  65
+seed value  93594
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.35e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 13           |
+|    time_elapsed         | 32667        |
+|    total_timesteps      | 1950         |
+| train/                  |              |
+|    approx_kl            | 9.536744e-09 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | -3.58e-07    |
+|    learning_rate        | 0.0001       |
+|    loss                 | 4.06e+12     |
+|    n_updates            | 480          |
+|    policy_gradient_loss | -3.23e-06    |
+|    std                  | 1            |
+|    value_loss           | 7.71e+12     |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  66
+seed value  33000
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  67
+seed value  740306
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  68
+seed value  26532
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  69
+seed value  656604
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  70
+seed value  298854
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.34e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 14           |
+|    time_elapsed         | 35193        |
+|    total_timesteps      | 2100         |
+| train/                  |              |
+|    approx_kl            | 6.755194e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | -4.77e-07    |
+|    learning_rate        | 0.0001       |
+|    loss                 | 3.67e+12     |
+|    n_updates            | 520          |
+|    policy_gradient_loss | -3.69e-05    |
+|    std                  | 1            |
+|    value_loss           | 7.67e+12     |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  71
+seed value  957825
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  72
+seed value  304641
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  73
+seed value  994554
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  74
+seed value  449422
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  75
+seed value  582310
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.34e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 15            |
+|    time_elapsed         | 37731         |
+|    total_timesteps      | 2250          |
+| train/                  |               |
+|    approx_kl            | 1.6291938e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -2.38e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.02e+12      |
+|    n_updates            | 560           |
+|    policy_gradient_loss | -8.39e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.75e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  76
+seed value  464391
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  77
+seed value  591579
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  78
+seed value  69684
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  79
+seed value  263710
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  80
+seed value  596793
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.33e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 16            |
+|    time_elapsed         | 40269         |
+|    total_timesteps      | 2400          |
+| train/                  |               |
+|    approx_kl            | 1.2318294e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -2.38e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.72e+12      |
+|    n_updates            | 600           |
+|    policy_gradient_loss | -3.82e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.8e+12       |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  81
+seed value  734105
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  82
+seed value  655295
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  83
+seed value  347600
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  84
+seed value  900266
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  85
+seed value  265052
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.34e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 17            |
+|    time_elapsed         | 42807         |
+|    total_timesteps      | 2550          |
+| train/                  |               |
+|    approx_kl            | 2.1060309e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -2.38e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.33e+12      |
+|    n_updates            | 640           |
+|    policy_gradient_loss | -1.25e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.69e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  86
+seed value  610290
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  87
+seed value  288724
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  88
+seed value  642013
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  89
+seed value  670631
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  90
+seed value  992335
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.34e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 18            |
+|    time_elapsed         | 45338         |
+|    total_timesteps      | 2700          |
+| train/                  |               |
+|    approx_kl            | 2.2252403e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -2.38e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.99e+12      |
+|    n_updates            | 680           |
+|    policy_gradient_loss | -1.24e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.86e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  91
+seed value  818014
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  92
+seed value  381991
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  93
+seed value  983050
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  94
+seed value  396273
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  95
+seed value  928214
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.34e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 19            |
+|    time_elapsed         | 47871         |
+|    total_timesteps      | 2850          |
+| train/                  |               |
+|    approx_kl            | 2.1457673e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | 0             |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.21e+12      |
+|    n_updates            | 720           |
+|    policy_gradient_loss | -1.12e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.87e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  96
+seed value  750898
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  97
+seed value  391646
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  98
+seed value  509645
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  99
+seed value  755478
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  100
+seed value  153016
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.33e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 20            |
+|    time_elapsed         | 50404         |
+|    total_timesteps      | 3000          |
+| train/                  |               |
+|    approx_kl            | 1.0331473e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.12e+12      |
+|    n_updates            | 760           |
+|    policy_gradient_loss | -2.93e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.87e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  101
+seed value  82499
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  102
+seed value  246966
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  103
+seed value  273073
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  104
+seed value  486653
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  105
+seed value  151212
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.33e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 21            |
+|    time_elapsed         | 52895         |
+|    total_timesteps      | 3150          |
+| train/                  |               |
+|    approx_kl            | 1.6689302e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.54e+12      |
+|    n_updates            | 800           |
+|    policy_gradient_loss | -1.09e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.77e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  106
+seed value  940979
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  107
+seed value  785306
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  108
+seed value  509695
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  109
+seed value  118308
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  110
+seed value  634123
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.32e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 22            |
+|    time_elapsed         | 55371         |
+|    total_timesteps      | 3300          |
+| train/                  |               |
+|    approx_kl            | 1.1523565e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.59e+12      |
+|    n_updates            | 840           |
+|    policy_gradient_loss | -4.5e-06      |
+|    std                  | 1             |
+|    value_loss           | 7.66e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  111
+seed value  979763
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  112
+seed value  384872
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  113
+seed value  323949
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  114
+seed value  630226
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  115
+seed value  926853
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.32e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 23            |
+|    time_elapsed         | 57870         |
+|    total_timesteps      | 3450          |
+| train/                  |               |
+|    approx_kl            | 1.7881394e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.77e+12      |
+|    n_updates            | 880           |
+|    policy_gradient_loss | -1.38e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.82e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  116
+seed value  278849
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  117
+seed value  282857
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  118
+seed value  481374
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  119
+seed value  744016
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  120
+seed value  989124
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.32e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 24            |
+|    time_elapsed         | 60397         |
+|    total_timesteps      | 3600          |
+| train/                  |               |
+|    approx_kl            | 1.1523565e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.07e+12      |
+|    n_updates            | 920           |
+|    policy_gradient_loss | -3.15e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.96e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  121
+seed value  553266
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  122
+seed value  435744
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  123
+seed value  685886
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  124
+seed value  493071
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  125
+seed value  449665
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.31e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 25            |
+|    time_elapsed         | 62920         |
+|    total_timesteps      | 3750          |
+| train/                  |               |
+|    approx_kl            | 2.7418139e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | 0             |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.23e+12      |
+|    n_updates            | 960           |
+|    policy_gradient_loss | -1.93e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.79e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  126
+seed value  673856
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  127
+seed value  925822
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  128
+seed value  338774
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  129
+seed value  401691
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  130
+seed value  421400
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.31e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 26           |
+|    time_elapsed         | 65464        |
+|    total_timesteps      | 3900         |
+| train/                  |              |
+|    approx_kl            | 9.934108e-09 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | 0            |
+|    learning_rate        | 0.0001       |
+|    loss                 | 4.25e+12     |
+|    n_updates            | 1000         |
+|    policy_gradient_loss | -5.29e-06    |
+|    std                  | 1            |
+|    value_loss           | 7.8e+12      |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  131
+seed value  635175
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  132
+seed value  586878
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  133
+seed value  303165
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  134
+seed value  545858
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  135
+seed value  116856
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.31e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 27            |
+|    time_elapsed         | 68002         |
+|    total_timesteps      | 4050          |
+| train/                  |               |
+|    approx_kl            | 2.5431316e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | 0             |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.24e+12      |
+|    n_updates            | 1040          |
+|    policy_gradient_loss | -1.86e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.94e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  136
+seed value  971788
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  137
+seed value  182199
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  138
+seed value  345315
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  139
+seed value  279515
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  140
+seed value  706139
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.31e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 28           |
+|    time_elapsed         | 70531        |
+|    total_timesteps      | 4200         |
+| train/                  |              |
+|    approx_kl            | 6.953876e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | -1.19e-07    |
+|    learning_rate        | 0.0001       |
+|    loss                 | 3.25e+12     |
+|    n_updates            | 1080         |
+|    policy_gradient_loss | -3.18e-05    |
+|    std                  | 1            |
+|    value_loss           | 7.82e+12     |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  141
+seed value  383378
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  142
+seed value  366038
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  143
+seed value  884124
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  144
+seed value  282896
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  145
+seed value  637053
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.32e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 29           |
+|    time_elapsed         | 73076        |
+|    total_timesteps      | 4350         |
+| train/                  |              |
+|    approx_kl            | 3.695488e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | -1.19e-07    |
+|    learning_rate        | 0.0001       |
+|    loss                 | 4e+12        |
+|    n_updates            | 1120         |
+|    policy_gradient_loss | -3.08e-05    |
+|    std                  | 1            |
+|    value_loss           | 7.94e+12     |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  146
+seed value  487726
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  147
+seed value  164580
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  148
+seed value  157474
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  149
+seed value  829719
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  150
+seed value  131570
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.31e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 30            |
+|    time_elapsed         | 75609         |
+|    total_timesteps      | 4500          |
+| train/                  |               |
+|    approx_kl            | 1.9470852e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.08e+12      |
+|    n_updates            | 1160          |
+|    policy_gradient_loss | -1.31e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.9e+12       |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  151
+seed value  959307
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  152
+seed value  737111
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  153
+seed value  153907
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  154
+seed value  340100
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  155
+seed value  635353
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.31e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 31            |
+|    time_elapsed         | 78145         |
+|    total_timesteps      | 4650          |
+| train/                  |               |
+|    approx_kl            | 2.4239222e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | 0             |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.09e+12      |
+|    n_updates            | 1200          |
+|    policy_gradient_loss | -1.34e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.72e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  156
+seed value  300101
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  157
+seed value  389478
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  158
+seed value  820331
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  159
+seed value  58042
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  160
+seed value  749933
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.31e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 32            |
+|    time_elapsed         | 80678         |
+|    total_timesteps      | 4800          |
+| train/                  |               |
+|    approx_kl            | 1.5497207e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | 0             |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.96e+12      |
+|    n_updates            | 1240          |
+|    policy_gradient_loss | -9.22e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.88e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  161
+seed value  447980
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  162
+seed value  265732
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  163
+seed value  11426
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  164
+seed value  739065
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  165
+seed value  13193
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.31e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 33            |
+|    time_elapsed         | 83216         |
+|    total_timesteps      | 4950          |
+| train/                  |               |
+|    approx_kl            | 1.3113022e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.63e+12      |
+|    n_updates            | 1280          |
+|    policy_gradient_loss | -7.6e-06      |
+|    std                  | 1             |
+|    value_loss           | 7.76e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  166
+seed value  264449
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  167
+seed value  378834
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  168
+seed value  459229
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  169
+seed value  376284
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  170
+seed value  835457
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.32e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 34           |
+|    time_elapsed         | 85735        |
+|    total_timesteps      | 5100         |
+| train/                  |              |
+|    approx_kl            | 5.602837e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | 1.79e-07     |
+|    learning_rate        | 0.0001       |
+|    loss                 | 4.15e+12     |
+|    n_updates            | 1320         |
+|    policy_gradient_loss | -3.25e-05    |
+|    std                  | 1            |
+|    value_loss           | 7.88e+12     |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  171
+seed value  790743
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  172
+seed value  922927
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  173
+seed value  66703
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  174
+seed value  491590
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  175
+seed value  986464
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.32e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 35            |
+|    time_elapsed         | 88260         |
+|    total_timesteps      | 5250          |
+| train/                  |               |
+|    approx_kl            | 2.2252403e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.03e+12      |
+|    n_updates            | 1360          |
+|    policy_gradient_loss | -1.2e-05      |
+|    std                  | 1             |
+|    value_loss           | 7.91e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  176
+seed value  968321
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  177
+seed value  669748
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  178
+seed value  453196
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  179
+seed value  379949
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  180
+seed value  592447
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.32e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 36            |
+|    time_elapsed         | 90778         |
+|    total_timesteps      | 5400          |
+| train/                  |               |
+|    approx_kl            | 2.9007595e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | 0             |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.15e+12      |
+|    n_updates            | 1400          |
+|    policy_gradient_loss | -1.62e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.83e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  181
+seed value  114881
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  182
+seed value  300208
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  183
+seed value  960206
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  184
+seed value  98382
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  185
+seed value  778441
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.32e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 37            |
+|    time_elapsed         | 93305         |
+|    total_timesteps      | 5550          |
+| train/                  |               |
+|    approx_kl            | 2.0662947e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | -1.19e-07     |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.69e+12      |
+|    n_updates            | 1440          |
+|    policy_gradient_loss | -1.36e-05     |
+|    std                  | 1             |
+|    value_loss           | 7.67e+12      |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  186
+seed value  946180
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  187
+seed value  819725
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  188
+seed value  421586
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  189
+seed value  984678
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  190
+seed value  633253
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.32e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 38           |
+|    time_elapsed         | 95845        |
+|    total_timesteps      | 5700         |
+| train/                  |              |
+|    approx_kl            | 9.059907e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | 0            |
+|    learning_rate        | 0.0001       |
+|    loss                 | 4.52e+12     |
+|    n_updates            | 1480         |
+|    policy_gradient_loss | -3.96e-05    |
+|    std                  | 1            |
+|    value_loss           | 7.93e+12     |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  191
+seed value  399244
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  192
+seed value  383001
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  193
+seed value  386958
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  194
+seed value  633565
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  195
+seed value  443445
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.32e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 39            |
+|    time_elapsed         | 98464         |
+|    total_timesteps      | 5850          |
+| train/                  |               |
+|    approx_kl            | 1.5894575e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | 5.96e-08      |
+|    learning_rate        | 0.0001        |
+|    loss                 | 4.22e+12      |
+|    n_updates            | 1520          |
+|    policy_gradient_loss | -8.56e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.9e+12       |
+-------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  196
+seed value  204714
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  197
+seed value  692399
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  198
+seed value  337011
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  199
+seed value  39247
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  200
+seed value  624785
+ self.numOfdays  30
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 30           |
+|    ep_rew_mean          | -7.32e+06    |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 40           |
+|    time_elapsed         | 101098       |
+|    total_timesteps      | 6000         |
+| train/                  |              |
+|    approx_kl            | 2.582868e-08 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -4.26        |
+|    explained_variance   | 0            |
+|    learning_rate        | 0.0001       |
+|    loss                 | 3.32e+12     |
+|    n_updates            | 1560         |
+|    policy_gradient_loss | -1.7e-05     |
+|    std                  | 1            |
+|    value_loss           | 7.84e+12     |
+------------------------------------------
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  201
+seed value  793604
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  202
+seed value  134751
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  203
+seed value  83456
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  204
+seed value  688783
+ self.numOfdays  30
+self.currday  0
+self.currday  1
+self.currday  2
+self.currday  3
+self.currday  4
+self.currday  5
+self.currday  6
+self.currday  7
+self.currday  8
+self.currday  9
+self.currday  10
+self.currday  11
+self.currday  12
+self.currday  13
+self.currday  14
+self.currday  15
+self.currday  16
+self.currday  17
+self.currday  18
+self.currday  19
+self.currday  20
+self.currday  21
+self.currday  22
+self.currday  23
+self.currday  24
+self.currday  25
+self.currday  26
+self.currday  27
+self.currday  28
+self.currday  29
+------------------------------
+ self.episode  205
+seed value  236424
+ self.numOfdays  30
+-------------------------------------------
+| rollout/                |               |
+|    ep_len_mean          | 30            |
+|    ep_rew_mean          | -7.33e+06     |
+| time/                   |               |
+|    fps                  | 0             |
+|    iterations           | 41            |
+|    time_elapsed         | 103664        |
+|    total_timesteps      | 6150          |
+| train/                  |               |
+|    approx_kl            | 1.1523565e-08 |
+|    clip_fraction        | 0             |
+|    clip_range           | 0.2           |
+|    entropy_loss         | -4.26         |
+|    explained_variance   | 0             |
+|    learning_rate        | 0.0001        |
+|    loss                 | 3.48e+12      |
+|    n_updates            | 1600          |
+|    policy_gradient_loss | -5.57e-06     |
+|    std                  | 1             |
+|    value_loss           | 7.8e+12       |
+-------------------------------------------
