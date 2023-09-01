@@ -1025,10 +1025,10 @@ class Simulation():
         state_encode = np.zeros(shape = encode_shape * len(state_ls))
 
         for j in range(encode_shape):
-            state_encode[j] = np.mean(average_accumulation[j*5:(j+1)*5])
-            state_encode[j+encode_shape] = np.mean(average_tt[j*5:(j+1)*5])
-            state_encode[j+2*encode_shape] = np.mean(sellvec[j*5:(j+1)*5])
-            state_encode[j+3*encode_shape] = np.mean(buyvec[j*5:(j+1)*5])
+            state_encode[j] = np.mean(average_accumulation[j*state_aggravate:(j+1)*state_aggravate])
+            state_encode[j+encode_shape] = np.mean(average_tt[j*state_aggravate:(j+1)*state_aggravate])
+            state_encode[j+2*encode_shape] = np.mean(sellvec[j*state_aggravate:(j+1)*state_aggravate])
+            state_encode[j+3*encode_shape] = np.mean(buyvec[j*state_aggravate:(j+1)*state_aggravate])
         return state_encode, vehicle_information, market_price, pt_share_number, sw
     
     # calculate social welfare value
@@ -1139,22 +1139,20 @@ class Simulation():
     
 class CommuteEnv(gym.Env): # env reset for each training/testing
         # Define initial parameters for the environment
-    def __init__(self, simulation_day_num = 30, save_episode_freq = 10, train=True, save_dir = "./train_result/", space_shape=(4, int(12*60/5)) ):
+    def __init__(self, simulation_day_num = 3, save_episode_freq = 9, train=True, save_dir = "./train_result/", space_shape=(4, int(12*60/5)) ):
         super().__init__()
         self.params = {'alpha':1.1, 'omega':0.9, 'theta':5*10**(-1), 'tao':90, 'Number_of_user':3700 } # alpha is unused
+    
+        self.simulation_day_num = simulation_day_num
+        self.save_episode_freq = save_episode_freq
+       
         # define action space for each actionable value
         # mu, sigma, A
         self.space_shape = space_shape
         self.action_space =  spaces.Box(low=np.array([-1.0, -1.0, -1.0]), high=np.array([1.0, 1.0, 1.0]), shape=(3,), dtype=np.float32)
         self.observation_space = spaces.Box(low= -99999, high= 99999,\
                                                 shape=space_shape, dtype=np.float64) # include more observations for a broader observation space
-        # self.seed_value = random.randint(0, 99999)
-        # self.sim = Simulation(_numOfdays=simulation_day_num, _user_params = user_params,
-        #                 _scenario=scenario,_allowance=allowance, 
-        #                 _marketPrice=marketPrice, _allocation = allocation,
-        #                 _deltaP = deltaP, _numOfusers=numOfusers, _RBTD = RBTD, _Tstep=Tstep, 
-        #                 _Plot = Plot, _seed = self.seed_value, _verbose = verbose, 
-        #                 _unusual = unusual, _storeTT=storeTT, _CV=CV, save_dfname='NT')
+
         self.render_mode = False
 
         self.tt_eps = [] # daily average travel time
@@ -1164,7 +1162,6 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         self.action_eps = [] # action change
         self.toll_eps = [] # toll profile
 
-        self.save_episode_freq = save_episode_freq
         self.train = train
         # self.norm = Normalization(space_shape)
 
@@ -1180,12 +1177,10 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         self.day = 0
 
         self.episode = 0 
-        self.first_episode = True
-
-        self.simulation_day_num = simulation_day_num 
+        self.first_episode = True   
+    
         self.save_dir = save_dir
         self.num_envs = 1
-        self.info = {}
         self.seed = random.randint(0, 99999)
 
     # This method generates a new starting state often with some randomness 
@@ -1252,8 +1247,7 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         tollparameters = np.array([120*self.toll_mu+420, 10*self.toll_sigma+60, 2*self.toll_A+3])
         state_encode, vehicle_information, market_price, pt_share_number, sw  = self.sim.RL_simulateOneday(tollparameters, self.day, state_aggravate) # 5 days social welfare
         observation = state_encode.reshape(self.space_shape)
-
-
+        
         ASTT = np.mean(vehicle_information["t_exp"]) # average system travel time per day is 34min, 31min
         reward = 80 - 2*ASTT 
         # print(np.save("tmp.npy", vehicle_information["t_exp"]))
@@ -1300,7 +1294,8 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
             done = False
         terminated = False
         self.day += 1
-
+        # print(" observation ", observation)
+        # print("observation.shape ", observation.shape)
         return observation, reward, terminated, done, info
     
     def set_seed(self, seed_value): 
