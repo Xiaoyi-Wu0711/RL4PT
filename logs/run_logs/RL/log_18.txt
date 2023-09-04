@@ -1,0 +1,31 @@
+start_time  Mon Sep  4 17:03:36 2023
+ learning_rate  0.001
+ resume from: PPO_Sun Sep  3 14:19:04 2023
+ Start training with total steps:  3000
+== CURRENT SYSTEM INFO ==
+- OS: Linux-6.2.0-26-generic-x86_64-with-glibc2.35 # 26~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jul 13 16:27:29 UTC 2
+- Python: 3.8.17
+- Stable-Baselines3: 2.0.0
+- PyTorch: 2.0.1+cu117
+- GPU Enabled: True
+- Numpy: 1.24.4
+- Cloudpickle: 2.2.1
+- Gymnasium: 0.28.1
+- OpenAI Gym: 0.26.2
+
+== SAVED MODEL SYSTEM INFO ==
+- OS: Linux-6.2.0-26-generic-x86_64-with-glibc2.35 # 26~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jul 13 16:27:29 UTC 2
+- Python: 3.8.17
+- Stable-Baselines3: 2.0.0
+- PyTorch: 2.0.1+cu117
+- GPU Enabled: True
+- Numpy: 1.24.4
+- Cloudpickle: 2.2.1
+- Gymnasium: 0.28.1
+- OpenAI Gym: 0.26.2
+
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+ self.episode  0
+seed value  2890
+Logging to ./results/PPO_Sun Sep  3 14:19:04 2023/tensorboards/PPO/second_run_0

@@ -1,0 +1,232 @@
+start_time  Fri Sep  1 11:10:01 2023
+ learning_rate  0.01
+ Start training with total steps:  6
+Using cuda device
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+ self.episode  0
+seed value  23963
+Logging to ./results/PPO_Fri Sep  1 11:10:01 2023/tensorboards/PPO/first_run_1
+action  [-0.6767079  -0.63140917 -0.50634325]
+action  [0.1643365  0.13183318 0.515096  ]
+action  [-0.08261762  1.         -0.81059057]
+action  [ 0.85608697 -0.97875     0.30926853]
+action  [ 0.7158392  -0.26161644  0.5701714 ]
+action  [ 0.77106446 -0.26678833  0.05111124]
+action  [ 0.07694721  0.5975044  -0.17281732]
+action  [0.33481586 1.         1.        ]
+action  [ 0.37657583  0.2547645  -0.59740394]
+action  [ 0.6127611  -0.38014078  0.80539775]
+action  [ 0.0162384  -0.22273783 -0.5779354 ]
+action  [-0.5037949  -1.         -0.73758566]
+action  [-0.60567534  1.          0.07582129]
+action  [ 0.0421965  1.        -1.       ]
+action  [ 0.23462784  0.42463508 -0.78344846]
+action  [-0.33204982  0.3915682   0.98695   ]
+action  [0.80844134 0.5474465  1.        ]
+action  [ 0.49874634 -1.          1.        ]
+action  [-0.07922079 -0.36634603 -0.3412561 ]
+action  [-1.        -0.4863242 -0.461375 ]
+action  [0.3863374  0.5455594  0.84907705]
+action  [-1.         -0.48358133 -0.37236893]
+action  [-0.7900043   0.54496336  0.5799176 ]
+action  [ 0.01531634 -0.7360798  -0.6348106 ]
+action  [-0.9593537  -1.          0.77537376]
+action  [-0.3436579  -0.09526098 -0.55210596]
+action  [-0.22423281  0.79801583 -1.        ]
+action  [-0.20813331  0.55678105 -0.36557177]
+action  [-0.7058235  -0.24939601  0.57020634]
+action  [ 0.2316207  -0.08351364  1.        ]
+ self.episode  1
+seed value  65276
+action  [-0.05236188  1.         -0.7145066 ]
+action  [-0.38376707 -0.8959375   0.6167091 ]
+action  [ 1.          0.31895393 -0.8028901 ]
+action  [0.73155427 1.         0.59652257]
+action  [-1.        -0.6237854 -1.       ]
+action  [-0.74642223 -0.62117434 -0.27343956]
+action  [ 0.06968421 -1.         -0.7032678 ]
+action  [ 1.         -0.82736284 -1.        ]
+action  [-0.44848192 -0.05389896 -0.4682341 ]
+action  [-0.50535434  0.44661662 -0.08246573]
+action  [-0.08265028  1.          1.        ]
+action  [1.        1.        0.7341104]
+action  [0.74339676 0.1145812  0.3666147 ]
+action  [1.         0.37951156 1.        ]
+action  [ 0.73909336  0.09370898 -0.42741096]
+action  [ 0.00267116  0.95066774 -1.        ]
+action  [-0.9943131 -1.         1.       ]
+action  [ 0.25534832 -1.          0.8269411 ]
+action  [-0.56067795  0.6991265   0.73322725]
+action  [ 1.       -1.        0.196299]
+action  [ 0.45786697 -1.          0.32496223]
+action  [-1.         -0.10765075  1.        ]
+action  [ 0.21926424  1.         -1.        ]
+action  [0.12720047 0.27644268 0.2643297 ]
+action  [-0.624607  -0.3305993 -1.       ]
+action  [-0.94773483  1.         -0.210487  ]
+action  [ 0.11699992 -0.85056597 -0.28142855]
+action  [-1.          0.43404874  0.16141258]
+action  [-0.8800239  -0.3677277   0.47182027]
+action  [ 0.70772356 -0.80148745 -0.18616842]
+ self.episode  2
+seed value  53524
+action  [-1.  1.  1.]
+action  [1.        0.4219719 1.       ]
+action  [-1. -1.  1.]
+action  [1.         0.47744206 1.        ]
+action  [ 1.         -0.874207    0.92012644]
+action  [-1.  1. -1.]
+action  [-0.18356086  1.          0.13003562]
+action  [-1.          0.20163026 -0.9449515 ]
+action  [-0.34606773  1.          0.5046304 ]
+action  [ 0.29994047 -0.72346616  1.        ]
+action  [-0.78105646  0.67565465  0.7772482 ]
+action  [ 0.8887392  -0.94932276  0.06766431]
+action  [-0.5446886  -0.24453337  1.        ]
+action  [ 0.5110106 -1.         1.       ]
+action  [-0.33150205 -0.49753138  0.6267162 ]
+action  [-1.          0.06318393 -0.907251  ]
+action  [ 1. -1.  1.]
+action  [-1.         -0.28958508  0.32135758]
+action  [-0.5340724   1.          0.22128306]
+action  [ 0.23410505 -1.          1.        ]
+action  [-0.06802996  0.71627647  1.        ]
+action  [-1.  1.  1.]
+action  [ 0.01563107  1.         -0.27938852]
+action  [-1.  1. -1.]
+action  [ 0.06139762  0.6813463  -1.        ]
+action  [-1.         0.3052325 -0.8046533]
+action  [ 0.7687333   1.         -0.89396167]
+action  [ 1.          0.02024289 -0.05505716]
+action  [-0.2884633   0.61424124  1.        ]
+action  [-0.54658264  1.         -1.        ]
+ self.episode  3
+seed value  61584
+action  [1.         0.74817073 0.19561322]
+action  [-1.          0.5534876   0.23337275]
+action  [-0.9897532   1.          0.33706957]
+action  [-1.         -1.         -0.41304997]
+action  [-0.16315246 -1.          0.06510392]
+action  [-0.47867686  0.6086172  -0.25467646]
+action  [-1.         -0.5639982  -0.42745638]
+action  [-0.34893987  0.5001904  -1.        ]
+action  [-0.27192888  0.7702268   0.51164854]
+action  [-0.5315371   0.32725516 -0.590294  ]
+action  [-0.01339879  0.04000886  1.        ]
+action  [0.18215472 0.58472455 0.6724288 ]
+action  [-1.        -1.        -0.9822544]
+action  [ 0.15832973  1.         -0.3049095 ]
+action  [-1.         -0.00357691  0.77587837]
+action  [ 0.63534707 -0.6755753  -1.        ]
+action  [ 1.          1.         -0.07054667]
+action  [ 1.         -0.12181628 -0.7561403 ]
+action  [-1.         -0.3509728  -0.42691526]
+action  [ 0.43158573 -0.06414106 -0.36968327]
+action  [-0.7316317 -1.         0.5428023]
+action  [-0.53450006 -1.          0.3038607 ]
+action  [ 1.         -0.88650274 -1.        ]
+action  [-1. -1.  1.]
+action  [-0.25154462  0.12071192  0.39869142]
+action  [ 0.69534546 -0.6944232   1.        ]
+action  [ 0.11921608 -0.18193178  0.63902897]
+action  [-0.14089409 -0.1098146  -0.8778812 ]
+action  [0.57596827 0.7554468  1.        ]
+action  [ 0.92977   -1.        -0.7439486]
+ self.episode  4
+seed value  77995
+action  [-0.91048086  1.         -0.06918111]
+action  [-0.27491966 -1.          0.88068855]
+action  [-1.         -0.28906024  0.290769  ]
+action  [ 1.          1.         -0.05152724]
+action  [ 0.20198722 -0.04254274 -0.41196203]
+action  [ 0.41104785 -0.03789071  1.        ]
+action  [ 0.04901609  1.         -0.39562947]
+action  [ 1.        -0.1165493  0.6743268]
+action  [-0.89113826 -1.          0.4773003 ]
+action  [-0.6999015   0.12503546 -0.36183676]
+action  [-0.29526675  0.6359807  -0.08372577]
+action  [-0.19586875  0.50076324 -0.9889328 ]
+action  [-0.5105323  0.3776207  1.       ]
+action  [-0.8859661 -0.4312825 -1.       ]
+action  [0.2914598 0.3156834 1.       ]
+action  [-0.44847336 -1.          0.9584779 ]
+action  [-1.         -0.26066667  1.        ]
+action  [0.9089939 0.4062263 0.407191 ]
+action  [-0.8019748   0.44301328 -0.5416075 ]
+action  [ 0.20674309 -1.         -0.11170483]
+action  [ 0.3374303  -0.23493043 -0.7068744 ]
+action  [-1.         -0.40144283  0.47465536]
+action  [0.08085679 0.9972651  1.        ]
+action  [ 0.07292732  1.         -0.27067766]
+action  [-0.14790812  0.24439517 -0.3967158 ]
+action  [0.4503998 1.        0.3101728]
+action  [-0.81178355  1.         -1.        ]
+action  [0.75716263 0.841023   1.        ]
+action  [-1.          0.24492185  0.7859315 ]
+action  [ 0.7732901 -0.5336144  1.       ]
+ self.episode  5
+seed value  83379
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 30       |
+|    ep_rew_mean     | 318      |
+| time/              |          |
+|    fps             | 0        |
+|    iterations      | 1        |
+|    time_elapsed    | 2456     |
+|    total_timesteps | 150      |
+---------------------------------
+/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/spaces/box.py:130: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  gym.logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/utils/passive_env_checker.py:42: UserWarning: [33mWARN: A Box observation space has an unconventional shape (neither an image, nor a 1D vector). We recommend flattening the observation to have only a 1D vector or use a custom policy to properly process the data. Actual observation shape: (4, 144)[0m
+  logger.warn(
+/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/utils/passive_env_checker.py:204: UserWarning: [33mWARN: The default seed argument in `Env.reset` should be `None`, otherwise the environment will by default always be deterministic. Actual default: seed=55868[0m
+  logger.warn(
+/home/xiawu/project 1.1/examples/examples/envs/commute_env.py:183: NumbaExperimentalFeatureWarning: Use of isinstance() detected. This is an experimental feature.
+  if isinstance(x, list):
+/home/xiawu/py38/lib/python3.8/site-packages/numba/core/ir_utils.py:2149: NumbaPendingDeprecationWarning: 
+Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument '_Accumulation' of function 'estimated_TT'.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+File "examples/examples/envs/commute_env.py", line 195:
+@njit(parallel=True)
+def estimated_TT(all_time_matrix,  time_list, car_number, _Accumulation, dist, ffspeed):
+^
+
+  warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
+/home/xiawu/py38/lib/python3.8/site-packages/numba/core/ir_utils.py:2149: NumbaPendingDeprecationWarning: 
+Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument '__Accumulation' of function '__numba_parfor_gufunc_0x7f695560e4c0'.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+File "<string>", line 1:
+<source missing, REPL/exec in use?>
+
+  warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
+/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/spaces/box.py:130: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  gym.logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/utils/passive_env_checker.py:42: UserWarning: [33mWARN: A Box observation space has an unconventional shape (neither an image, nor a 1D vector). We recommend flattening the observation to have only a 1D vector or use a custom policy to properly process the data. Actual observation shape: (4, 144)[0m
+  logger.warn(
+/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/utils/passive_env_checker.py:204: UserWarning: [33mWARN: The default seed argument in `Env.reset` should be `None`, otherwise the environment will by default always be deterministic. Actual default: seed=55868[0m
+  logger.warn(
+Early stopping at step 1 due to reaching max kl: 0.08
+ 
+finish training!!!!!!!!!!!!!!!!!
+ 
+ Start testing with total eps:  3
+ self.episode  0
+seed value  30061
+Traceback (most recent call last):
+  File "wrapper_main.py", line 179, in <module>
+    main()
+  File "wrapper_main.py", line 170, in main
+    action = model.predict(obs, deterministic=True)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/stable_baselines3/common/base_class.py", line 556, in predict
+    return self.policy.predict(observation, state, episode_start, deterministic)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 346, in predict
+    observation, vectorized_env = self.obs_to_tensor(observation)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/stable_baselines3/common/policies.py", line 260, in obs_to_tensor
+    observation = np.array(observation)
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (2,) + inhomogeneous part.
