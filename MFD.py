@@ -1729,7 +1729,7 @@ def main():
             # Event-based simulation, reffering to Algorithm 1 in the paper
             # tollparams = [7.90084456*60, 65.01906779, 2.49667875] # mu, sigma, A
             # tollparams = [340.13974786,  70.        ,   4.4965179 ]
-            tollparams = [439.39614058,  70.        ,   5.        ]
+            tollparams = [0.5547902096366654, -0.5903404805363967, -1.0]
             scenario = 'Trinity' # simulate:'NT': no toll, 'CP': congestion price, 'Trinity'
             toll = 'normal' # 'step', 'normal'
             # only applies if scenario is Trinity

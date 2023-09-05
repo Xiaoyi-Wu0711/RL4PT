@@ -1,0 +1,1349 @@
+start_time  Sun Sep  3 14:19:04 2023
+ learning_rate  0.001
+ Start training with total steps:  9000
+Using cuda device
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+ self.episode  0
+seed value  69545
+Logging to ./results/PPO_Sun Sep  3 14:19:04 2023/tensorboards/PPO/first_run_1
+ self.episode  1
+seed value  93871
+ self.episode  2
+seed value  27469
+ self.episode  3
+seed value  92747
+ self.episode  4
+seed value  64272
+ self.episode  5
+seed value  15954
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 30       |
+|    ep_rew_mean     | 331      |
+| time/              |          |
+|    fps             | 0        |
+|    iterations      | 1        |
+|    time_elapsed    | 2405     |
+|    total_timesteps | 150      |
+---------------------------------
+ self.episode  6
+seed value  78068
+ self.episode  7
+seed value  73414
+ self.episode  8
+seed value  33756
+ self.episode  9
+seed value  12471
+ self.episode  10
+seed value  5863
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 327         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 2           |
+|    time_elapsed         | 4819        |
+|    total_timesteps      | 300         |
+| train/                  |             |
+|    approx_kl            | 0.043169368 |
+|    clip_fraction        | 0.424       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -4.2        |
+|    explained_variance   | -0.00329    |
+|    learning_rate        | 0.001       |
+|    loss                 | 7e+03       |
+|    n_updates            | 40          |
+|    policy_gradient_loss | -0.109      |
+|    std                  | 0.97        |
+|    value_loss           | 1.58e+04    |
+-----------------------------------------
+ self.episode  11
+seed value  98613
+ self.episode  12
+seed value  27342
+ self.episode  13
+seed value  71290
+ self.episode  14
+seed value  28230
+ self.episode  15
+seed value  17628
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 328         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 3           |
+|    time_elapsed         | 7170        |
+|    total_timesteps      | 450         |
+| train/                  |             |
+|    approx_kl            | 0.041495517 |
+|    clip_fraction        | 0.514       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -4.12       |
+|    explained_variance   | -0.0308     |
+|    learning_rate        | 0.001       |
+|    loss                 | 5.5e+03     |
+|    n_updates            | 80          |
+|    policy_gradient_loss | -0.116      |
+|    std                  | 0.938       |
+|    value_loss           | 1.46e+04    |
+-----------------------------------------
+ self.episode  16
+seed value  87002
+ self.episode  17
+seed value  98551
+ self.episode  18
+seed value  75989
+ self.episode  19
+seed value  93771
+ self.episode  20
+seed value  62565
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 325         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 4           |
+|    time_elapsed         | 9552        |
+|    total_timesteps      | 600         |
+| train/                  |             |
+|    approx_kl            | 0.039363682 |
+|    clip_fraction        | 0.516       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -4.03       |
+|    explained_variance   | -0.0719     |
+|    learning_rate        | 0.001       |
+|    loss                 | 6.56e+03    |
+|    n_updates            | 120         |
+|    policy_gradient_loss | -0.122      |
+|    std                  | 0.91        |
+|    value_loss           | 1.53e+04    |
+-----------------------------------------
+Early stopping at step 15 due to reaching max kl: 0.09
+ self.episode  21
+seed value  52330
+ self.episode  22
+seed value  35982
+ self.episode  23
+seed value  72802
+ self.episode  24
+seed value  71552
+ self.episode  25
+seed value  7370
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 325        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 5          |
+|    time_elapsed         | 11961      |
+|    total_timesteps      | 750        |
+| train/                  |            |
+|    approx_kl            | 0.06598441 |
+|    clip_fraction        | 0.434      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.96      |
+|    explained_variance   | -0.021     |
+|    learning_rate        | 0.001      |
+|    loss                 | 5.83e+03   |
+|    n_updates            | 136        |
+|    policy_gradient_loss | -0.103     |
+|    std                  | 0.899      |
+|    value_loss           | 1.47e+04   |
+----------------------------------------
+Early stopping at step 13 due to reaching max kl: 0.08
+ self.episode  26
+seed value  63786
+ self.episode  27
+seed value  69986
+ self.episode  28
+seed value  15589
+ self.episode  29
+seed value  23416
+ self.episode  30
+seed value  77417
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 325        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 6          |
+|    time_elapsed         | 14370      |
+|    total_timesteps      | 900        |
+| train/                  |            |
+|    approx_kl            | 0.08114506 |
+|    clip_fraction        | 0.415      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.95      |
+|    explained_variance   | -0.0864    |
+|    learning_rate        | 0.001      |
+|    loss                 | 7.86e+03   |
+|    n_updates            | 150        |
+|    policy_gradient_loss | -0.0968    |
+|    std                  | 0.902      |
+|    value_loss           | 1.61e+04   |
+----------------------------------------
+Early stopping at step 7 due to reaching max kl: 0.09
+ self.episode  31
+seed value  57424
+ self.episode  32
+seed value  85215
+ self.episode  33
+seed value  94287
+ self.episode  34
+seed value  35755
+ self.episode  35
+seed value  33507
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 326         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 7           |
+|    time_elapsed         | 16788       |
+|    total_timesteps      | 1050        |
+| train/                  |             |
+|    approx_kl            | 0.050444707 |
+|    clip_fraction        | 0.321       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.93       |
+|    explained_variance   | -0.092      |
+|    learning_rate        | 0.001       |
+|    loss                 | 7.55e+03    |
+|    n_updates            | 158         |
+|    policy_gradient_loss | -0.0735     |
+|    std                  | 0.89        |
+|    value_loss           | 1.61e+04    |
+-----------------------------------------
+Early stopping at step 5 due to reaching max kl: 0.09
+ self.episode  36
+seed value  23943
+ self.episode  37
+seed value  18149
+ self.episode  38
+seed value  3809
+ self.episode  39
+seed value  4720
+ self.episode  40
+seed value  5776
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 325        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 8          |
+|    time_elapsed         | 19201      |
+|    total_timesteps      | 1200       |
+| train/                  |            |
+|    approx_kl            | 0.04732837 |
+|    clip_fraction        | 0.244      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.9       |
+|    explained_variance   | -0.0884    |
+|    learning_rate        | 0.001      |
+|    loss                 | 9.63e+03   |
+|    n_updates            | 164        |
+|    policy_gradient_loss | -0.0594    |
+|    std                  | 0.889      |
+|    value_loss           | 1.69e+04   |
+----------------------------------------
+Early stopping at step 21 due to reaching max kl: 0.08
+ self.episode  41
+seed value  37440
+ self.episode  42
+seed value  91612
+ self.episode  43
+seed value  50342
+ self.episode  44
+seed value  74831
+ self.episode  45
+seed value  73610
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 326         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 9           |
+|    time_elapsed         | 21547       |
+|    total_timesteps      | 1350        |
+| train/                  |             |
+|    approx_kl            | 0.060148813 |
+|    clip_fraction        | 0.526       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.9        |
+|    explained_variance   | -0.0847     |
+|    learning_rate        | 0.001       |
+|    loss                 | 6.71e+03    |
+|    n_updates            | 186         |
+|    policy_gradient_loss | -0.118      |
+|    std                  | 0.883       |
+|    value_loss           | 1.51e+04    |
+-----------------------------------------
+Early stopping at step 14 due to reaching max kl: 0.08
+ self.episode  46
+seed value  35453
+ self.episode  47
+seed value  42048
+ self.episode  48
+seed value  35299
+ self.episode  49
+seed value  27361
+ self.episode  50
+seed value  2369
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 326        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 10         |
+|    time_elapsed         | 23930      |
+|    total_timesteps      | 1500       |
+| train/                  |            |
+|    approx_kl            | 0.07789387 |
+|    clip_fraction        | 0.443      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.85      |
+|    explained_variance   | -0.119     |
+|    learning_rate        | 0.001      |
+|    loss                 | 7.56e+03   |
+|    n_updates            | 201        |
+|    policy_gradient_loss | -0.0937    |
+|    std                  | 0.867      |
+|    value_loss           | 1.61e+04   |
+----------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.08
+ self.episode  51
+seed value  51113
+ self.episode  52
+seed value  49016
+ self.episode  53
+seed value  11667
+ self.episode  54
+seed value  50277
+ self.episode  55
+seed value  52032
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 326        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 11         |
+|    time_elapsed         | 26332      |
+|    total_timesteps      | 1650       |
+| train/                  |            |
+|    approx_kl            | 0.05465423 |
+|    clip_fraction        | 0.233      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.82      |
+|    explained_variance   | -0.0876    |
+|    learning_rate        | 0.001      |
+|    loss                 | 9.69e+03   |
+|    n_updates            | 206        |
+|    policy_gradient_loss | -0.0641    |
+|    std                  | 0.862      |
+|    value_loss           | 1.57e+04   |
+----------------------------------------
+Early stopping at step 9 due to reaching max kl: 0.09
+ self.episode  56
+seed value  71108
+ self.episode  57
+seed value  1310
+ self.episode  58
+seed value  31580
+ self.episode  59
+seed value  97319
+ self.episode  60
+seed value  18681
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 326         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 12          |
+|    time_elapsed         | 28729       |
+|    total_timesteps      | 1800        |
+| train/                  |             |
+|    approx_kl            | 0.058262415 |
+|    clip_fraction        | 0.463       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.79       |
+|    explained_variance   | -0.0856     |
+|    learning_rate        | 0.001       |
+|    loss                 | 8.28e+03    |
+|    n_updates            | 216         |
+|    policy_gradient_loss | -0.096      |
+|    std                  | 0.854       |
+|    value_loss           | 1.58e+04    |
+-----------------------------------------
+Early stopping at step 3 due to reaching max kl: 0.10
+ self.episode  61
+seed value  17577
+ self.episode  62
+seed value  23476
+ self.episode  63
+seed value  76962
+ self.episode  64
+seed value  97492
+ self.episode  65
+seed value  60924
+--------------------------------------
+| rollout/                |          |
+|    ep_len_mean          | 30       |
+|    ep_rew_mean          | 327      |
+| time/                   |          |
+|    fps                  | 0        |
+|    iterations           | 13       |
+|    time_elapsed         | 31128    |
+|    total_timesteps      | 1950     |
+| train/                  |          |
+|    approx_kl            | 0.057063 |
+|    clip_fraction        | 0.222    |
+|    clip_range           | 0.2      |
+|    entropy_loss         | -3.78    |
+|    explained_variance   | -0.0992  |
+|    learning_rate        | 0.001    |
+|    loss                 | 6.28e+03 |
+|    n_updates            | 220      |
+|    policy_gradient_loss | -0.0452  |
+|    std                  | 0.852    |
+|    value_loss           | 1.61e+04 |
+--------------------------------------
+Early stopping at step 13 due to reaching max kl: 0.08
+ self.episode  66
+seed value  88304
+ self.episode  67
+seed value  35053
+ self.episode  68
+seed value  11165
+ self.episode  69
+seed value  41676
+ self.episode  70
+seed value  83380
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 328        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 14         |
+|    time_elapsed         | 33508      |
+|    total_timesteps      | 2100       |
+| train/                  |            |
+|    approx_kl            | 0.06363802 |
+|    clip_fraction        | 0.495      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.74      |
+|    explained_variance   | -0.0868    |
+|    learning_rate        | 0.001      |
+|    loss                 | 8.13e+03   |
+|    n_updates            | 234        |
+|    policy_gradient_loss | -0.106     |
+|    std                  | 0.832      |
+|    value_loss           | 1.57e+04   |
+----------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.08
+ self.episode  71
+seed value  80709
+ self.episode  72
+seed value  27118
+ self.episode  73
+seed value  72609
+ self.episode  74
+seed value  4268
+ self.episode  75
+seed value  82649
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 328         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 15          |
+|    time_elapsed         | 35918       |
+|    total_timesteps      | 2250        |
+| train/                  |             |
+|    approx_kl            | 0.052406855 |
+|    clip_fraction        | 0.232       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.69       |
+|    explained_variance   | -0.091      |
+|    learning_rate        | 0.001       |
+|    loss                 | 7.47e+03    |
+|    n_updates            | 239         |
+|    policy_gradient_loss | -0.0683     |
+|    std                  | 0.824       |
+|    value_loss           | 1.66e+04    |
+-----------------------------------------
+Early stopping at step 10 due to reaching max kl: 0.08
+ self.episode  76
+seed value  61567
+ self.episode  77
+seed value  66195
+ self.episode  78
+seed value  57554
+ self.episode  79
+seed value  83647
+ self.episode  80
+seed value  67548
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 328        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 16         |
+|    time_elapsed         | 38347      |
+|    total_timesteps      | 2400       |
+| train/                  |            |
+|    approx_kl            | 0.04230272 |
+|    clip_fraction        | 0.389      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.65      |
+|    explained_variance   | -0.0944    |
+|    learning_rate        | 0.001      |
+|    loss                 | 7.72e+03   |
+|    n_updates            | 250        |
+|    policy_gradient_loss | -0.0856    |
+|    std                  | 0.811      |
+|    value_loss           | 1.59e+04   |
+----------------------------------------
+Early stopping at step 2 due to reaching max kl: 0.10
+ self.episode  81
+seed value  78218
+ self.episode  82
+seed value  1197
+ self.episode  83
+seed value  86260
+ self.episode  84
+seed value  42481
+ self.episode  85
+seed value  14806
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 328        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 17         |
+|    time_elapsed         | 40756      |
+|    total_timesteps      | 2550       |
+| train/                  |            |
+|    approx_kl            | 0.10175743 |
+|    clip_fraction        | 0.0848     |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.62      |
+|    explained_variance   | -0.0962    |
+|    learning_rate        | 0.001      |
+|    loss                 | 7.43e+03   |
+|    n_updates            | 253        |
+|    policy_gradient_loss | -0.0298    |
+|    std                  | 0.81       |
+|    value_loss           | 1.51e+04   |
+----------------------------------------
+Early stopping at step 10 due to reaching max kl: 0.08
+ self.episode  86
+seed value  6379
+ self.episode  87
+seed value  3729
+ self.episode  88
+seed value  28064
+ self.episode  89
+seed value  53451
+ self.episode  90
+seed value  39200
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 329         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 18          |
+|    time_elapsed         | 43161       |
+|    total_timesteps      | 2700        |
+| train/                  |             |
+|    approx_kl            | 0.048788976 |
+|    clip_fraction        | 0.374       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.62       |
+|    explained_variance   | -0.092      |
+|    learning_rate        | 0.001       |
+|    loss                 | 8.9e+03     |
+|    n_updates            | 264         |
+|    policy_gradient_loss | -0.0854     |
+|    std                  | 0.806       |
+|    value_loss           | 1.6e+04     |
+-----------------------------------------
+Early stopping at step 3 due to reaching max kl: 0.08
+ self.episode  91
+seed value  47528
+ self.episode  92
+seed value  31629
+ self.episode  93
+seed value  10720
+ self.episode  94
+seed value  22280
+ self.episode  95
+seed value  52644
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 329         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 19          |
+|    time_elapsed         | 45577       |
+|    total_timesteps      | 2850        |
+| train/                  |             |
+|    approx_kl            | 0.039023057 |
+|    clip_fraction        | 0.157       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.61       |
+|    explained_variance   | -0.0991     |
+|    learning_rate        | 0.001       |
+|    loss                 | 8.95e+03    |
+|    n_updates            | 268         |
+|    policy_gradient_loss | -0.045      |
+|    std                  | 0.805       |
+|    value_loss           | 1.65e+04    |
+-----------------------------------------
+Early stopping at step 3 due to reaching max kl: 0.09
+ self.episode  96
+seed value  92974
+ self.episode  97
+seed value  36568
+ self.episode  98
+seed value  39762
+ self.episode  99
+seed value  41013
+ self.episode  100
+seed value  28401
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 330        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 20         |
+|    time_elapsed         | 47980      |
+|    total_timesteps      | 3000       |
+| train/                  |            |
+|    approx_kl            | 0.06560023 |
+|    clip_fraction        | 0.157      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.61      |
+|    explained_variance   | -0.0904    |
+|    learning_rate        | 0.001      |
+|    loss                 | 7.24e+03   |
+|    n_updates            | 272        |
+|    policy_gradient_loss | -0.0343    |
+|    std                  | 0.807      |
+|    value_loss           | 1.61e+04   |
+----------------------------------------
+Early stopping at step 3 due to reaching max kl: 0.08
+ self.episode  101
+seed value  70460
+ self.episode  102
+seed value  31384
+ self.episode  103
+seed value  317
+ self.episode  104
+seed value  60581
+ self.episode  105
+seed value  42789
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 330         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 21          |
+|    time_elapsed         | 50364       |
+|    total_timesteps      | 3150        |
+| train/                  |             |
+|    approx_kl            | 0.075876266 |
+|    clip_fraction        | 0.257       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.61       |
+|    explained_variance   | -0.0917     |
+|    learning_rate        | 0.001       |
+|    loss                 | 6.27e+03    |
+|    n_updates            | 276         |
+|    policy_gradient_loss | -0.0491     |
+|    std                  | 0.808       |
+|    value_loss           | 1.61e+04    |
+-----------------------------------------
+Early stopping at step 3 due to reaching max kl: 0.10
+ self.episode  106
+seed value  52128
+ self.episode  107
+seed value  43755
+ self.episode  108
+seed value  19962
+ self.episode  109
+seed value  54211
+ self.episode  110
+seed value  58867
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 331         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 22          |
+|    time_elapsed         | 52777       |
+|    total_timesteps      | 3300        |
+| train/                  |             |
+|    approx_kl            | 0.069898516 |
+|    clip_fraction        | 0.302       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.62       |
+|    explained_variance   | -0.0798     |
+|    learning_rate        | 0.001       |
+|    loss                 | 5.85e+03    |
+|    n_updates            | 280         |
+|    policy_gradient_loss | -0.0438     |
+|    std                  | 0.81        |
+|    value_loss           | 1.59e+04    |
+-----------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.08
+ self.episode  111
+seed value  90744
+ self.episode  112
+seed value  15345
+ self.episode  113
+seed value  75062
+ self.episode  114
+seed value  1398
+ self.episode  115
+seed value  44292
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 331         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 23          |
+|    time_elapsed         | 55146       |
+|    total_timesteps      | 3450        |
+| train/                  |             |
+|    approx_kl            | 0.049926214 |
+|    clip_fraction        | 0.292       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.62       |
+|    explained_variance   | -0.0655     |
+|    learning_rate        | 0.001       |
+|    loss                 | 6.74e+03    |
+|    n_updates            | 285         |
+|    policy_gradient_loss | -0.0658     |
+|    std                  | 0.807       |
+|    value_loss           | 1.61e+04    |
+-----------------------------------------
+Early stopping at step 7 due to reaching max kl: 0.08
+ self.episode  116
+seed value  71218
+ self.episode  117
+seed value  11316
+ self.episode  118
+seed value  38660
+ self.episode  119
+seed value  33013
+ self.episode  120
+seed value  51598
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 332        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 24         |
+|    time_elapsed         | 57543      |
+|    total_timesteps      | 3600       |
+| train/                  |            |
+|    approx_kl            | 0.07577928 |
+|    clip_fraction        | 0.326      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.6       |
+|    explained_variance   | -0.0642    |
+|    learning_rate        | 0.001      |
+|    loss                 | 8.45e+03   |
+|    n_updates            | 293        |
+|    policy_gradient_loss | -0.0819    |
+|    std                  | 0.805      |
+|    value_loss           | 1.62e+04   |
+----------------------------------------
+Early stopping at step 9 due to reaching max kl: 0.09
+ self.episode  121
+seed value  71715
+ self.episode  122
+seed value  33984
+ self.episode  123
+seed value  77487
+ self.episode  124
+seed value  62870
+ self.episode  125
+seed value  92891
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 332        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 25         |
+|    time_elapsed         | 59918      |
+|    total_timesteps      | 3750       |
+| train/                  |            |
+|    approx_kl            | 0.09402554 |
+|    clip_fraction        | 0.418      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.61      |
+|    explained_variance   | -0.0604    |
+|    learning_rate        | 0.001      |
+|    loss                 | 6.67e+03   |
+|    n_updates            | 303        |
+|    policy_gradient_loss | -0.0954    |
+|    std                  | 0.806      |
+|    value_loss           | 1.54e+04   |
+----------------------------------------
+Early stopping at step 6 due to reaching max kl: 0.08
+ self.episode  126
+seed value  36791
+ self.episode  127
+seed value  85245
+ self.episode  128
+seed value  99883
+ self.episode  129
+seed value  81710
+ self.episode  130
+seed value  9281
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 333         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 26          |
+|    time_elapsed         | 62326       |
+|    total_timesteps      | 3900        |
+| train/                  |             |
+|    approx_kl            | 0.052982602 |
+|    clip_fraction        | 0.285       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.61       |
+|    explained_variance   | -0.061      |
+|    learning_rate        | 0.001       |
+|    loss                 | 8.21e+03    |
+|    n_updates            | 310         |
+|    policy_gradient_loss | -0.0658     |
+|    std                  | 0.806       |
+|    value_loss           | 1.54e+04    |
+-----------------------------------------
+Early stopping at step 5 due to reaching max kl: 0.08
+ self.episode  131
+seed value  7475
+ self.episode  132
+seed value  71751
+ self.episode  133
+seed value  35246
+ self.episode  134
+seed value  10252
+ self.episode  135
+seed value  35635
+---------------------------------------
+| rollout/                |           |
+|    ep_len_mean          | 30        |
+|    ep_rew_mean          | 333       |
+| time/                   |           |
+|    fps                  | 0         |
+|    iterations           | 27        |
+|    time_elapsed         | 64736     |
+|    total_timesteps      | 4050      |
+| train/                  |           |
+|    approx_kl            | 0.0577561 |
+|    clip_fraction        | 0.29      |
+|    clip_range           | 0.2       |
+|    entropy_loss         | -3.61     |
+|    explained_variance   | -0.0588   |
+|    learning_rate        | 0.001     |
+|    loss                 | 7.14e+03  |
+|    n_updates            | 316       |
+|    policy_gradient_loss | -0.0684   |
+|    std                  | 0.805     |
+|    value_loss           | 1.52e+04  |
+---------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.09
+ self.episode  136
+seed value  59959
+ self.episode  137
+seed value  24202
+ self.episode  138
+seed value  12236
+ self.episode  139
+seed value  36569
+ self.episode  140
+seed value  35212
+---------------------------------------
+| rollout/                |           |
+|    ep_len_mean          | 30        |
+|    ep_rew_mean          | 333       |
+| time/                   |           |
+|    fps                  | 0         |
+|    iterations           | 28        |
+|    time_elapsed         | 67153     |
+|    total_timesteps      | 4200      |
+| train/                  |           |
+|    approx_kl            | 0.0890514 |
+|    clip_fraction        | 0.254     |
+|    clip_range           | 0.2       |
+|    entropy_loss         | -3.6      |
+|    explained_variance   | -0.0563   |
+|    learning_rate        | 0.001     |
+|    loss                 | 8.59e+03  |
+|    n_updates            | 321       |
+|    policy_gradient_loss | -0.0507   |
+|    std                  | 0.804     |
+|    value_loss           | 1.54e+04  |
+---------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.08
+ self.episode  141
+seed value  35122
+ self.episode  142
+seed value  10377
+ self.episode  143
+seed value  11686
+ self.episode  144
+seed value  4394
+ self.episode  145
+seed value  650
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 333         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 29          |
+|    time_elapsed         | 69557       |
+|    total_timesteps      | 4350        |
+| train/                  |             |
+|    approx_kl            | 0.051363755 |
+|    clip_fraction        | 0.297       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.61       |
+|    explained_variance   | -0.0532     |
+|    learning_rate        | 0.001       |
+|    loss                 | 5.57e+03    |
+|    n_updates            | 326         |
+|    policy_gradient_loss | -0.051      |
+|    std                  | 0.807       |
+|    value_loss           | 1.45e+04    |
+-----------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.10
+ self.episode  146
+seed value  41144
+ self.episode  147
+seed value  85537
+ self.episode  148
+seed value  57681
+ self.episode  149
+seed value  78156
+ self.episode  150
+seed value  35698
+--------------------------------------
+| rollout/                |          |
+|    ep_len_mean          | 30       |
+|    ep_rew_mean          | 333      |
+| time/                   |          |
+|    fps                  | 0        |
+|    iterations           | 30       |
+|    time_elapsed         | 71985    |
+|    total_timesteps      | 4500     |
+| train/                  |          |
+|    approx_kl            | 0.04928  |
+|    clip_fraction        | 0.269    |
+|    clip_range           | 0.2      |
+|    entropy_loss         | -3.61    |
+|    explained_variance   | -0.0536  |
+|    learning_rate        | 0.001    |
+|    loss                 | 8.81e+03 |
+|    n_updates            | 331      |
+|    policy_gradient_loss | -0.0623  |
+|    std                  | 0.804    |
+|    value_loss           | 1.5e+04  |
+--------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.09
+ self.episode  151
+seed value  50636
+ self.episode  152
+seed value  73401
+ self.episode  153
+seed value  82869
+ self.episode  154
+seed value  36797
+ self.episode  155
+seed value  19529
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 333        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 31         |
+|    time_elapsed         | 74413      |
+|    total_timesteps      | 4650       |
+| train/                  |            |
+|    approx_kl            | 0.06966174 |
+|    clip_fraction        | 0.258      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.6       |
+|    explained_variance   | -0.057     |
+|    learning_rate        | 0.001      |
+|    loss                 | 7.58e+03   |
+|    n_updates            | 336        |
+|    policy_gradient_loss | -0.0595    |
+|    std                  | 0.801      |
+|    value_loss           | 1.44e+04   |
+----------------------------------------
+Early stopping at step 2 due to reaching max kl: 0.08
+ self.episode  156
+seed value  65679
+ self.episode  157
+seed value  90555
+ self.episode  158
+seed value  49985
+ self.episode  159
+seed value  41901
+ self.episode  160
+seed value  63735
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 333        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 32         |
+|    time_elapsed         | 76763      |
+|    total_timesteps      | 4800       |
+| train/                  |            |
+|    approx_kl            | 0.04658242 |
+|    clip_fraction        | 0.198      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.59      |
+|    explained_variance   | -0.0576    |
+|    learning_rate        | 0.001      |
+|    loss                 | 7.88e+03   |
+|    n_updates            | 339        |
+|    policy_gradient_loss | -0.0385    |
+|    std                  | 0.799      |
+|    value_loss           | 1.45e+04   |
+----------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.10
+ self.episode  161
+seed value  7097
+ self.episode  162
+seed value  10300
+ self.episode  163
+seed value  83024
+ self.episode  164
+seed value  89373
+ self.episode  165
+seed value  69907
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 333         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 33          |
+|    time_elapsed         | 79154       |
+|    total_timesteps      | 4950        |
+| train/                  |             |
+|    approx_kl            | 0.051590063 |
+|    clip_fraction        | 0.269       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.57       |
+|    explained_variance   | -0.0487     |
+|    learning_rate        | 0.001       |
+|    loss                 | 9e+03       |
+|    n_updates            | 344         |
+|    policy_gradient_loss | -0.0631     |
+|    std                  | 0.796       |
+|    value_loss           | 1.57e+04    |
+-----------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.08
+ self.episode  166
+seed value  82951
+ self.episode  167
+seed value  27640
+ self.episode  168
+seed value  1084
+ self.episode  169
+seed value  84605
+ self.episode  170
+seed value  41095
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 332        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 34         |
+|    time_elapsed         | 81592      |
+|    total_timesteps      | 5100       |
+| train/                  |            |
+|    approx_kl            | 0.05009633 |
+|    clip_fraction        | 0.247      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.57      |
+|    explained_variance   | -0.0685    |
+|    learning_rate        | 0.001      |
+|    loss                 | 7.28e+03   |
+|    n_updates            | 349        |
+|    policy_gradient_loss | -0.0557    |
+|    std                  | 0.796      |
+|    value_loss           | 1.45e+04   |
+----------------------------------------
+Early stopping at step 8 due to reaching max kl: 0.08
+ self.episode  171
+seed value  32331
+ self.episode  172
+seed value  47439
+ self.episode  173
+seed value  51491
+ self.episode  174
+seed value  1000
+ self.episode  175
+seed value  56226
+----------------------------------------
+| rollout/                |            |
+|    ep_len_mean          | 30         |
+|    ep_rew_mean          | 331        |
+| time/                   |            |
+|    fps                  | 0          |
+|    iterations           | 35         |
+|    time_elapsed         | 84003      |
+|    total_timesteps      | 5250       |
+| train/                  |            |
+|    approx_kl            | 0.08053666 |
+|    clip_fraction        | 0.408      |
+|    clip_range           | 0.2        |
+|    entropy_loss         | -3.57      |
+|    explained_variance   | -0.0623    |
+|    learning_rate        | 0.001      |
+|    loss                 | 6.74e+03   |
+|    n_updates            | 358        |
+|    policy_gradient_loss | -0.0866    |
+|    std                  | 0.794      |
+|    value_loss           | 1.34e+04   |
+----------------------------------------
+Early stopping at step 6 due to reaching max kl: 0.08
+ self.episode  176
+seed value  27622
+ self.episode  177
+seed value  69198
+ self.episode  178
+seed value  96469
+ self.episode  179
+seed value  12795
+ self.episode  180
+seed value  73053
+---------------------------------------
+| rollout/                |           |
+|    ep_len_mean          | 30        |
+|    ep_rew_mean          | 332       |
+| time/                   |           |
+|    fps                  | 0         |
+|    iterations           | 36        |
+|    time_elapsed         | 86413     |
+|    total_timesteps      | 5400      |
+| train/                  |           |
+|    approx_kl            | 0.0536454 |
+|    clip_fraction        | 0.362     |
+|    clip_range           | 0.2       |
+|    entropy_loss         | -3.57     |
+|    explained_variance   | -0.0587   |
+|    learning_rate        | 0.001     |
+|    loss                 | 7.6e+03   |
+|    n_updates            | 365       |
+|    policy_gradient_loss | -0.0744   |
+|    std                  | 0.797     |
+|    value_loss           | 1.46e+04  |
+---------------------------------------
+Early stopping at step 4 due to reaching max kl: 0.09
+ self.episode  181
+seed value  59772
+ self.episode  182
+seed value  69010
+ self.episode  183
+seed value  82904
+ self.episode  184
+seed value  17763
+ self.episode  185
+seed value  10668
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 332         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 37          |
+|    time_elapsed         | 88795       |
+|    total_timesteps      | 5550        |
+| train/                  |             |
+|    approx_kl            | 0.057885878 |
+|    clip_fraction        | 0.317       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.56       |
+|    explained_variance   | -0.062      |
+|    learning_rate        | 0.001       |
+|    loss                 | 7.66e+03    |
+|    n_updates            | 370         |
+|    policy_gradient_loss | -0.0708     |
+|    std                  | 0.792       |
+|    value_loss           | 1.45e+04    |
+-----------------------------------------
+Early stopping at step 2 due to reaching max kl: 0.10
+ self.episode  186
+seed value  44496
+ self.episode  187
+seed value  83599
+ self.episode  188
+seed value  20606
+ self.episode  189
+seed value  76681
+ self.episode  190
+seed value  1955
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 331         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 38          |
+|    time_elapsed         | 91208       |
+|    total_timesteps      | 5700        |
+| train/                  |             |
+|    approx_kl            | 0.058804866 |
+|    clip_fraction        | 0.188       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.56       |
+|    explained_variance   | -0.0449     |
+|    learning_rate        | 0.001       |
+|    loss                 | 8.56e+03    |
+|    n_updates            | 373         |
+|    policy_gradient_loss | -0.0318     |
+|    std                  | 0.792       |
+|    value_loss           | 1.46e+04    |
+-----------------------------------------
+Early stopping at step 6 due to reaching max kl: 0.08
+ self.episode  191
+seed value  96403
+ self.episode  192
+seed value  4794
+ self.episode  193
+seed value  2654
+ self.episode  194
+seed value  56808
+ self.episode  195
+seed value  1759
+-----------------------------------------
+| rollout/                |             |
+|    ep_len_mean          | 30          |
+|    ep_rew_mean          | 331         |
+| time/                   |             |
+|    fps                  | 0           |
+|    iterations           | 39          |
+|    time_elapsed         | 93579       |
+|    total_timesteps      | 5850        |
+| train/                  |             |
+|    approx_kl            | 0.078753464 |
+|    clip_fraction        | 0.341       |
+|    clip_range           | 0.2         |
+|    entropy_loss         | -3.56       |
+|    explained_variance   | -0.046      |
+|    learning_rate        | 0.001       |
+|    loss                 | 7.03e+03    |
+|    n_updates            | 380         |
+|    policy_gradient_loss | -0.0716     |
+|    std                  | 0.796       |
+|    value_loss           | 1.41e+04    |
+-----------------------------------------
+/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/spaces/box.py:130: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  gym.logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/utils/passive_env_checker.py:42: UserWarning: [33mWARN: A Box observation space has an unconventional shape (neither an image, nor a 1D vector). We recommend flattening the observation to have only a 1D vector or use a custom policy to properly process the data. Actual observation shape: (4, 144)[0m
+  logger.warn(
+/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/utils/passive_env_checker.py:204: UserWarning: [33mWARN: The default seed argument in `Env.reset` should be `None`, otherwise the environment will by default always be deterministic. Actual default: seed=15088[0m
+  logger.warn(
+/home/xiawu/project 1.1/CustomEnvs/Custom_Envs/envs/commute_env.py:180: NumbaExperimentalFeatureWarning: Use of isinstance() detected. This is an experimental feature.
+  if isinstance(x, list):
+/home/xiawu/py38/lib/python3.8/site-packages/numba/core/ir_utils.py:2149: NumbaPendingDeprecationWarning: 
+Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument '_Accumulation' of function 'estimated_TT'.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+File "CustomEnvs/Custom_Envs/envs/commute_env.py", line 192:
+@njit(parallel=True)
+def estimated_TT(all_time_matrix,  time_list, car_number, _Accumulation, dist, ffspeed):
+^
+
+  warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
+/home/xiawu/py38/lib/python3.8/site-packages/numba/core/ir_utils.py:2149: NumbaPendingDeprecationWarning: 
+Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument '__Accumulation' of function '__numba_parfor_gufunc_0x7f5c0c7a3af0'.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+File "<string>", line 1:
+<source missing, REPL/exec in use?>
+
+  warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
+Early stopping at step 3 due to reaching max kl: 0.08
+ self.episode  196
+seed value  99991
+ self.episode  197
+seed value  71485
+ self.episode  198
+seed value  47286
+Traceback (most recent call last):
+  File "wrapper_main.py", line 120, in <module>
+    main()
+  File "wrapper_main.py", line 95, in main
+    model.learn(total_timesteps = train_time_steps, tb_log_name= "first_run", callback = checkpoint_callback)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/stable_baselines3/ppo/ppo.py", line 308, in learn
+    return super().learn(
+  File "/home/xiawu/py38/lib/python3.8/site-packages/stable_baselines3/common/on_policy_algorithm.py", line 259, in learn
+    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/stable_baselines3/common/on_policy_algorithm.py", line 178, in collect_rollouts
+    new_obs, rewards, dones, infos = env.step(clipped_actions)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/stable_baselines3/common/vec_env/base_vec_env.py", line 197, in step
+    return self.step_wait()
+  File "/home/xiawu/py38/lib/python3.8/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 58, in step_wait
+    obs, self.buf_rews[env_idx], terminated, truncated, self.buf_infos[env_idx] = self.envs[env_idx].step(
+  File "/home/xiawu/py38/lib/python3.8/site-packages/stable_baselines3/common/monitor.py", line 94, in step
+    observation, reward, terminated, truncated, info = self.env.step(action)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/wrappers/normalize.py", line 76, in step
+    obs, rews, terminateds, truncateds, infos = self.env.step(action)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/wrappers/time_limit.py", line 57, in step
+    observation, reward, terminated, truncated, info = self.env.step(action)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/wrappers/order_enforcing.py", line 56, in step
+    return self.env.step(action)
+  File "/home/xiawu/py38/lib/python3.8/site-packages/gymnasium/wrappers/env_checker.py", line 49, in step
+    return self.env.step(action)
+  File "/home/xiawu/project 1.1/CustomEnvs/Custom_Envs/envs/commute_env.py", line 1245, in step
+    state_encode, vehicle_information, market_price, pt_share_number, sw  = self.sim.RL_simulateOneday(tollparameters, self.day, state_aggravate) # 5 days social welfare
+  File "/home/xiawu/project 1.1/CustomEnvs/Custom_Envs/envs/commute_env.py", line 998, in RL_simulateOneday
+    self.swvec.append(self.calculate_sw())
+  File "/home/xiawu/project 1.1/CustomEnvs/Custom_Envs/envs/commute_env.py", line 1048, in calculate_sw
+    NT_util = np.load("./output/MFD/NT/NT_util.npy")
+  File "/home/xiawu/py38/lib/python3.8/site-packages/numpy/lib/npyio.py", line 405, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: './output/MFD/NT/NT_util.npy'

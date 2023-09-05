@@ -16,7 +16,7 @@ import lhsmdu
 import GPy
 import GPyOpt
 from numpy.random import seed
-
+import os
 import numpy as np
 import timeit
 import pandas as pd
@@ -80,7 +80,7 @@ bounds = [{"name": "mu1", "type": "continuous", "domain": (-1, 1)},
           {"name": "A1", "type": "continuous", "domain":(-1, 1)},
           ]
 
-def bimodal(self, x,mu1,sigma1,A1, mu2=0, sigma2=0, A2=0):
+def bimodal_plot(x,mu1,sigma1,A1, mu2=0, sigma2=0, A2=0):
     def custgauss(x,mu,sigma,A):
         mu = mu*120 + 420 # 300, 540
         sigma = sigma*10 + 60 # 50, 70
@@ -562,7 +562,7 @@ class Travelers():
         self.decaying = _allocation['Decaying']
   
         if self.CV:
-            self.NT_sysutil = np.load("../output/MFD/NT/NT_sysutil.npy")
+            self.NT_sysutil = np.load("./output/MFD/NT/NT_sysutil.npy")
         self.userCV = np.zeros(self.numOfusers) # calculate the user's willingness to pay for the shared ride based on their cost variation (CV) measure.
         
         # initialize user accounts
@@ -1050,7 +1050,7 @@ class Simulation():
             sigma = sigma*10 + 60 # 50, 70
             A = A*2 + 3 # 1,5
             return A*np.exp(-(x-mu)**2/2/sigma**2)
-        return custgauss(x,mu1*60,sigma1,A1)+custgauss(x,mu2*60,sigma2,A2)
+        return custgauss(x,mu1,sigma1,A1)+custgauss(x,mu2,sigma2,A2)
 
     def simulate(self, tollparams, iter, toll = 'step'):
         # create time of day toll 
@@ -1336,7 +1336,7 @@ class Simulation():
         if self.scenario == 'NT':
             obj = np.sum(util)
         else:
-            NT_util = np.load("../output/MFD/NT/NT_util.npy")
+            NT_util = np.load("./output/MFD/NT/NT_util.npy")
             # TODO: change the baseline toll
             userBenefits = (util - NT_util)
             obj = np.sum(userBenefits) + 2 * self.regulator.RR
@@ -1372,9 +1372,9 @@ class Simulation():
         self.flowdf['tt'] = np.where(self.flowdf.departure!=-1,self.flowdf.arrival-self.flowdf.departure,0)
 
         if self.scenario =="NT":
-            main_log_dir = "../output/BO/NT"
+            main_log_dir = "./output/MFD/NT/"
         if 	self.scenario =="Trinity":
-            main_log_dir = "../output/BO/Trinity/"
+            main_log_dir = "./output/MFD/Trinity/"
         np.save((main_log_dir+"swvec.npy"), np.array(self.swvec))
         np.save((main_log_dir+"pricevec.npy"), np.array(self.pricevec))
         np.save((main_log_dir+"ttvec.npy"), np.array(self.ttvec))
@@ -1398,11 +1398,11 @@ class Simulation():
             
         #### plot ###
         if self.scenario == 'NT':
-            folder = "../Plot/BO/NT"
-            np.save("../output/BO/NT/NT_util", util)
-            np.save("../output/BO/NT/NT_utiltt",TT)
-            np.save("../output/BO/NT/NT_utilsde",SDE)
-            np.save("../output/BO/NT/NT_utilsdl",SDL)
+            folder = "./plot/MFD/NT"
+            np.save("./output/MFD/NT/NT_util", util)
+            np.save("./output/MFD/NT/NT_utiltt",TT)
+            np.save("./output/MFD/NT/NT_utilsde",SDE)
+            np.save("./output/MFD/NT/NT_utilsdl",SDL)
             print("nan user id:", np.where(np.isnan(util)))
             df = pd.DataFrame({'betavot':self.users.vot,'dailyincome':self.users.I, 'ifptshare':ifptshare,'TTv':TTv,'SDEv':SDEv,'SDLv':SDLv,'Wv':Wv,'nonlinearInc':nonlinearInc,'linearInc':linearInc,
                                 'arrival':np.mod(self.users.actualArrival, self.hoursInA_Day*60),'departure':np.where(self.users.predayDeparture!=-1,np.mod(self.users.predayDeparture,self.hoursInA_Day*60),self.users.predayDeparture)})
@@ -1442,16 +1442,16 @@ class Simulation():
                 return 	{"ntgini": gini(self.users.I),"avgtt":np.average(TT[TT>=10]),"avgsde":np.average(SDE[TT>=10]),"avgsdl":np.average(SDL[TT>=10]),"sw":self.swvec}
         else:
             # np.save("ptshare",self.users.ptshare)
-            NT_util = np.load("../output/MFD/NT/NT_util.npy")
-            NT_utiltt = np.load("../output/MFD/NT/NT_utiltt.npy")
-            NT_utilsdl = np.load("../output/MFD/NT/NT_utilsdl.npy")
-            NT_utilsde = np.load("../output/MFD/NT/NT_utilsde.npy")
+            NT_util = np.load("./output/MFD/NT/NT_util.npy")
+            NT_utiltt = np.load("./output/MFD/NT/NT_utiltt.npy")
+            NT_utilsdl = np.load("./output/MFD/NT/NT_utilsdl.npy")
+            NT_utilsde = np.load("./output/MFD/NT/NT_utilsde.npy")
             userBenefits = (util-NT_util)
             if self.scenario == 'CP':
                 if not self.allowance['policy']:
-                    np.save("../output/MFD/CPuserw", userBenefits)
+                    np.save("./output/MFD/CPuserw", userBenefits)
                 else:
-                    CPuserw = np.load("../output/MFD/CPuserw.npy")
+                    CPuserw = np.load("./output/MFD/CPuserw.npy")
             
             print("nan user id:", np.where(np.isnan(userBenefits)))
             obj = np.sum(userBenefits)+ 2*self.regulator.RR
@@ -1477,8 +1477,11 @@ class Simulation():
                                 'usersell':self.userSell,'userbuy':self.userBuy,'usernet':self.userSell-self.userBuy,'userToll':self.userToll,'userAllowance':self.users.distribution,'uninet':self.users.distribution-self.userBuy,
                                 'TTv':TTv,'SDEv':SDEv,'SDLv':SDLv,'Wv':Wv,'nonlinearInc':nonlinearInc,'linearInc':linearInc
                                 })
-
-            main_log_dir = "../output/BO"
+            
+            if self.scenario =="NT":
+                main_log_dir = "./output/MFD/NT/"
+            if 	self.scenario =="Trinity":
+                main_log_dir = "./output/MFD/Trinity/"
             df.to_csv((main_log_dir+self.save_dfname+'.csv'))
             qt1 = df[df['dailyincome']<=df.dailyincome.quantile(0.25)]
             qt2 = df[(df['dailyincome']>df.dailyincome.quantile(0.25))&(df['dailyincome']<=df.dailyincome.quantile(0.5))]
@@ -1514,7 +1517,10 @@ class Simulation():
             
             ##### plot ####
             if self.Plot:
-                folder = "../plot/BO"
+                if self.scenario == "CP":
+                    folder = "./plot/MFD/CP"
+                if self.scenario == "Trinity":
+                    folder = "./plot/MFD/Trinity"
                 plot_desired_departure(self.numOfusers, self.users.desiredDeparture, figname='desirede_departure_time', folder=folder)
                 plot_income_dist(self.users.I, figname='income_distribution', folder=folder)
                 plot_toll(self.toll, folder=folder)
@@ -1670,8 +1676,8 @@ class Simulation():
 def main():
     sample = True
     optimize = True
-    iteration = 30
-    
+    iteration = 10
+    print("current work path", os.getcwd())
     if sample: 
     # run simulation based on these 10 initialization
         lhs = lhsmdu.sample(3, 10)
@@ -1689,7 +1695,7 @@ def main():
                             _marketPrice=marketPrice, _allocation = allocation,
                             _deltaP = deltaP, _numOfusers=numOfusers, _RBTD = RBTD, _Tstep=Tstep, 
                             _Plot = Plot, _seed = seed_Value, _verbose = verbose, 
-                            _unusual = unusual, _storeTT=storeTT, _CV=CV, save_dfname='../output/BO/Trinity')
+                            _unusual = unusual, _storeTT=storeTT, _CV=CV, save_dfname='./output/BO/Trinity')
             simulator.simulate(tollparams, iter, toll) # 30 day sum of travel time
             total_travel_time = 0
             for i in range(1, 6):
@@ -1699,13 +1705,15 @@ def main():
         y_step = np.reshape(np.array(y_step), (-1, 1))
         x_step = np.array(lhs_df.values.tolist())
                 
-        np.save("../output/BO/y_step.npy", y_step)
-        np.save("../output/BO/x_step.npy", x_step)
+        np.save("output/BO/y_step.npy", y_step)
+        np.save("output/BO/x_step.npy", x_step)
 
     if optimize:
-        y_step = np.load("../output/BO/y_step.npy")
-        x_step = np.load("../output/BO/x_step.npy")
+
+        y_step = np.load("output/BO/y_step.npy")
+        x_step = np.load("output/BO/x_step.npy")
         toll_record = []
+        np.bool = np.bool_
         travel_time_converge = [] 
         for iter in range(iteration):
             print("iter ", iter)
@@ -1741,25 +1749,24 @@ def main():
         travel_time_array = np.array(travel_time_converge) 
         toll_record_array =  np.array(toll_record)
         # np.save("output/BO/toll_record.npy", np.array(toll_record))
-        np.save("../output/BO/toll_record_30.npy",toll_record_array)
-        np.save("../output/BO/travel_time_converge_30.npy", travel_time_array)
+        np.save("./output/BO/toll_record.npy",toll_record_array)
+        np.save("./output/BO/travel_time_converge.npy", travel_time_array)
         optimal_index = np.argmin(travel_time_array)
         optimal_toll =toll_record_array[optimal_index, :]
-        np.save("../output/BO/optimal_Travel_tt.npy", np.array(np.min(travel_time_array)))
-        np.save("../output/BO/optimal_toll.npy", np.array(optimal_toll))
+        np.save("./output/BO/optimal_Travel_tt.npy", np.array(np.min(travel_time_array)))
+        np.save("./output/BO/optimal_toll.npy", np.array(optimal_toll))
 
         fig, ax = plt.subplots(figsize=(12,9))
         plt.plot(travel_time_array,label='Daily average travel time')
-        plt.xlabel("Day",fontsize=25)
+        plt.xlabel("Iteration time",fontsize=25)
         plt.ylabel("Average travel time (min)",fontsize=25)
         ax.tick_params(axis='x', labelsize= 20)
         ax.tick_params(axis='y', labelsize= 20)
-        fig.savefig('../plot/BO//travel time converge.png', dpi=fig.dpi)
-
+        fig.savefig('./plot/BO//travel time converge.png', dpi=fig.dpi)
 
 
         timeofday = np.arange(12*60) # the toll fees of the day
-        toll_profile = np.repeat(np.maximum(bimodal(timeofday[np.arange(0, 12*60, 1)], optimal_toll),0),1)
+        toll_profile = np.repeat(np.maximum(bimodal_plot(timeofday[np.arange(0, 12*60, 1)], *optimal_toll),0),1)
         toll_profile = np.around(toll_profile, 2)
  
         fig, ax = plt.subplots(figsize=(12,9))
@@ -1767,7 +1774,7 @@ def main():
         ax.tick_params(axis='y', labelsize= 20)
         plt.ylabel('Toll ($)',fontsize = 25)
         plt.xlabel("Time (hr)",fontsize=25)
-        plt.savefig('../plot/BO/toll profile.png')
+        plt.savefig('./plot/BO/toll profile.png')
 
 
 if __name__ == "__main__":
