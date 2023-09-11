@@ -701,10 +701,14 @@ class Simulation():
         self.AR = _allocation['AR']
         self.decaying = _allocation['Decaying']
         self.tradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)})
-        self.flowdf = pd.DataFrame({'departure':np.zeros(self.numOfdays*self.numOfusers),'arrival':np.zeros(self.numOfdays*self.numOfusers),
-            'user':np.tile(np.arange(self.numOfusers),self.numOfdays)})
-        self.usertradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)}) # record user amount of trade behaviors
-        self.tokentradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)}) # record average token amount of trade behaviors
+        # self.flowdf = pd.DataFrame({'departure':np.zeros(self.numOfdays*self.numOfusers),'arrival':np.zeros(self.numOfdays*self.numOfusers),
+        #   'user':np.tile(np.arange(self.numOfusers),self.numOfdays)})
+        self.flow_array = np.zeros((self.numOfdays, self.numOfusers, 3)) # departure, arrival, user, travel time
+        self.usertrade_array = np.zeros((self.numOfdays,self.hoursInA_Day*60, 2)) # buy and sell 
+        self.tokentrade_array = np.zeros((self.numOfdays, self.hoursInA_Day*60, 2)) # buy and sell 
+
+        # self.usertradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)}) # record user amount of trade behaviors
+        # self.tokentradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)}) # record average token amount of trade behaviors
 
         self.users = Travelers(self.numOfusers,_user_params=self.user_params,_allocation=_allocation,
                              _fftt=_fftt, _hoursInA_Day=_hoursInA_Day,_Tstep=self.Tstep,
@@ -715,7 +719,6 @@ class Simulation():
         self.regulator = Regulator(_marketPrice,_RBTD,_deltaP)
         self.pricevec = [] # daily market price record
         self.swvec = [] # daily social welfare record
-        self.flowconvergevec = [] 
         self.ptsharevec = []# daily PT sharing record
         self.originalAtt = {}
         self.presellAfterdep = np.zeros(self.numOfusers,dtype=int)
@@ -963,20 +966,32 @@ class Simulation():
                     userSell += np.where(tempuserSell>1e-6,tempuserSell*self.regulator.marketPrice*(1),0)
                     userSelltc += np.where(tempuserSell>1e-6,tempuserSell*self.regulator.marketPrice*(-self.PTCs)-self.FTCs,0)
         
-        # regulator updates balance
-        self.usertradedf['buy'] = buyvec
-        self.usertradedf['sell'] = sellvec
-        self.tokentradedf['sell'] = sellamount
-        self.tokentradedf['buy'] = buyamount
+        # # regulator updates balance
+        # self.usertradedf['buy'] = buyvec
+        # self.usertradedf['sell'] = sellvec
+        # self.tokentradedf['sell'] = sellamount
+        # self.tokentradedf['buy'] = buyamount
+
+        self.usertrade_array[self.currday,:, 0] = buyvec
+        self.usertrade_array[self.currday,:, 1] = sellvec
+
+        self.tokentrade_array[self.currday,:, 0] = sellamount
+        self.tokentrade_array[self.currday,:, 1] = buyamount
 
         self.users.update_arrival(actualArrival)
-        self.flowdf.iloc[self.currday*self.numOfusers: (self.currday+1)*self.numOfusers, 0] = np.maximum(self.users.predayDeparture-beginTime,-1)
-        self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers, 1] = np.maximum(actualArrival-beginTime,-1)
-        if self.currday>=1:
-            mask1 = self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers,0].values>0
-            mask2 = self.flowdf.iloc[(self.currday-1)*self.numOfusers:(self.currday)*self.numOfusers,0].values>0
-            self.flowconvergevec.append(np.linalg.norm(self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers,0].values[mask1&mask2]-self.flowdf.iloc[(self.currday-1)*self.numOfusers:(self.currday)*self.numOfusers,0].values[mask1&mask2]))
-        self.flowdf['tt'] = np.where(self.flowdf.departure!=-1,self.flowdf.arrival-self.flowdf.departure, self.users.pttt)
+  
+        # self.flowdf.iloc[self.currday*self.numOfusers: (self.currday+1)*self.numOfusers, 0] = np.maximum(self.users.predayDeparture-beginTime,-1)
+        # self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers, 1] = np.maximum(actualArrival-beginTime,-1)
+            
+        self.flow_array[self.currday, :, 0]  =  np.maximum(self.users.predayDeparture-beginTime,-1)
+        self.flow_array[self.currday, :, 1]  =  np.maximum(actualArrival-beginTime,-1)
+        self.flow_array[self.currday, :, 2]  =  np.where(self.flow_array[self.currday, :, 0]!=-1, self.flow_array[self.currday, :, 1] -  self.flow_array[self.currday, :, 0] , self.users.pttt)
+
+        # if self.currday>=1:
+        #     mask1 = self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers,0].values>0
+        #     mask2 = self.flowdf.iloc[(self.currday-1)*self.numOfusers:(self.currday)*self.numOfusers,0].values>0
+        #     self.flowconvergevec.append(np.linalg.norm(self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers,0].values[mask1&mask2]-self.flowdf.iloc[(self.currday-1)*self.numOfusers:(self.currday)*self.numOfusers,0].values[mask1&mask2]))
+        # self.flowdf['tt'] = np.where(self.flowdf.departure!=-1,self.flowdf.arrival-self.flowdf.departure, self.users.pttt)
 
         # day to day learning
         # update regulator account balance at the end of day
@@ -1169,6 +1184,9 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         self.action_all_eps = []
         self.toll_all_eps = []
         self.price_all_eps = []
+        self.flow_all_eps = []
+        self.usertrade_all_eps = []
+        self.tokentrade_all_eps = []
 
         self.first_ep = True
         self.day = 0
@@ -1268,8 +1286,11 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
             self.action_all_eps.append(np.array(self.action_eps))
             self.toll_all_eps.append(np.array(self.toll_eps))
             self.price_all_eps.append(np.array(self.price_eps))
+            self.flow_all_eps.append(np.array(self.sim.flow_array))
+            self.tokentrade_all_eps.append(np.array(self.sim.tokentrade_array))
+            self.usertrade_all_eps.append(np.array(self.sim.usertrade_array))
 
-            if  (self.episode+1)% self.save_episode_freq == 0:
+            if  (self.episode-1)% self.save_episode_freq == 0:
                 if self.train: 
                     save_dir = self.save_dir+"/train_result/"
                 else: 
@@ -1283,10 +1304,10 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
                 np.save((save_dir+str(self.episode+1)+"_ppo_mp.npy"), self.get_mp())
                 np.save((save_dir+str(self.episode+1)+"_ppo_rw.npy"), self.get_rw())
                 np.save((save_dir+str(self.episode+1)+"_ppo_action.npy"), self.get_action())    
-                np.save((save_dir+str(self.episode+1)+"_ppo_price.npy"), self.get_price())    
-                self.sim.flowdf.to_csv((save_dir+"flowdf.csv"))
-                self.sim.tokentradedf.to_csv(save_dir+"tokentradedf.csv")
-                self.sim.usertradedf.to_csv(save_dir+"usertradedf.csv")            
+                np.save((save_dir+str(self.episode+1)+"_ppo_price.npy"), self.get_price()) 
+                np.save((save_dir+str(self.episode+1)+"_ppo_flow.npy"), self.get_flow())    
+                np.save((save_dir+str(self.episode+1)+"_ppo_usertrade.npy"), self.get_usertrade())    
+                np.save((save_dir+str(self.episode+1)+"_ppo_tokentrade.npy"), self.get_tokentrade())              
         else:
             done = False
         terminated = False
@@ -1331,9 +1352,20 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         return np.array(self.toll_all_eps)
 
     def get_price(self): # get pt user number
-        # print(" self.rw_all_eps ", self.rw_all_eps)
         return np.array(self.price_all_eps)
+    
+    def get_flow(self): # get pt user number
+        # print(" self.rw_all_eps ", self.rw_all_eps)
+        return np.array(self.flow_all_eps)
 
+    def get_tokentrade(self): # get pt user number
+        # print(" self.rw_all_eps ", self.rw_all_eps)
+        return np.array(self.tokentrade_all_eps)
+    
+    def get_usertrade(self): # get pt user number
+        # print(" self.rw_all_eps ", self.rw_all_eps)
+        return np.array(self.usertrade_all_eps)
+    
     def set_capacity(self, cap):
         self.sim.set_capacity(cap)
 

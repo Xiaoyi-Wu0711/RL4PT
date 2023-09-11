@@ -1369,7 +1369,7 @@ class Simulation():
         print("average tt: ",np.average(TT),"average sde: ", np.average(SDE),"average SDL: ", np.average(SDL),"max TT: ",max(TT))
         print("average car tt: ",np.average(TT[self.users.predayDeparture!=-1]),"average car sde: ", np.average(SDE[self.users.predayDeparture!=-1]),
             "average SDL: ", np.average(SDL[self.users.predayDeparture!=-1]),"max TT: ",max(TT))
-        self.flowdf['tt'] = np.where(self.flowdf.departure!=-1,self.flowdf.arrival-self.flowdf.departure,0)
+        self.flowdf['tt'] = np.where(self.flowdf.departure!=-1,self.flowdf.arrival-self.flowdf.departure,self.users.pttt)
 
         if self.scenario =="NT":
             main_log_dir = "./output/MFD/NT/"

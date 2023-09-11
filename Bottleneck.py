@@ -1006,10 +1006,14 @@ class Simulation():
             (x>=x_step4)*(x<x_step5)*step4 + (x>=x_step5)*(x<x_step6)*step5 + (x>=x_step6)*(x<x_step1)*0
         return steptoll
 
-    def bimodal(self,x,mu1,sigma1,A1):
+    def bimodal(self, x,mu1,sigma1,A1):
         def custgauss(x,mu,sigma,A):
+            mu = mu*120 + 420 # 300, 540
+            sigma = sigma*10 + 60 # 50, 70
+            A = A*2 + 3 # 1,5
             return A*np.exp(-(x-mu)**2/2/sigma**2)
-        return custgauss(x,mu1*60,sigma1,A1)
+        return custgauss(x,mu1,sigma1,A1)
+
 
     def simulate(self, tollparams):
         # create time of day toll 
@@ -1816,7 +1820,7 @@ class Simulation():
 def main():
     print("\n")
     scenario = "NT"
-    tollparams = [7.90084456,65.01906779,2.49667875]
+    tollparams = [0.5547902096366654, -0.5903404805363967, -1.0]
     toll_type = "normal"
     print("Scenario: ", scenario)
 
@@ -1852,7 +1856,7 @@ def main():
 
     print("\n")
     scenario = "Trinity"
-    tollparams = [7.90084456,65.01906779,2.49667875]
+    tollparams = [0.5547902096366654, -0.5903404805363967, -1.0]
     toll_type = "normal"   
     print("Scenario: ", scenario, " Toll: ",  toll_type)
 
