@@ -988,6 +988,7 @@ class Simulation():
 
         self.regulator = Regulator(_marketPrice,_RBTD,_deltaP)
         self.pricevec = [] # daily market price record
+        self.tt_last_5_day = []
         self.swvec = [] # daily social welfare record
         self.ttvec = [] # daily average travel time record
         self.flowconvergevec = [] 
@@ -1008,13 +1009,13 @@ class Simulation():
             (x>=x_step4)*(x<x_step5)*step4 + (x>=x_step5)*(x<x_step6)*step5 + (x>=x_step6)*(x<x_step1)*0
         return steptoll
 
-    def bimodal(self, x,mu1,sigma1,A1, mu2=0, sigma2=0, A2=0):
+    def bimodal(self, x,mu1,sigma1,A1):
         def custgauss(x,mu,sigma,A):
             mu = mu*120 + 420 # 300, 540
             sigma = sigma*10 + 60 # 50, 70
             A = A*2 + 3 # 1,5
             return A*np.exp(-(x-mu)**2/2/sigma**2)
-        return custgauss(x,mu1,sigma1,A1)+custgauss(x,mu2,sigma2,A2)
+        return custgauss(x,mu1,sigma1,A1)
 
     def simulate(self, tollparams, iter, toll = 'step'):
         # create time of day toll 
@@ -1263,6 +1264,7 @@ class Simulation():
         self.pricevec.append(self.regulator.marketPrice)
         self.ptsharevec.append(len(self.users.ptshare))
         self.swvec.append(self.calculate_sw())
+        self.tt_last_5_day.append(np.mean(vehicle_information["t_exp"][-5:]))
         self.ttvec.append(np.mean(vehicle_information["t_exp"]))
         self.car_number_ls.append(np.array(car_number))
         self.vehicle_information_ls.append(vehicle_information)
@@ -1342,6 +1344,7 @@ class Simulation():
         if 	self.scenario =="Trinity":
             main_log_dir = "./output/MFD/Trinity/"
         np.save((main_log_dir+"swvec.npy"), np.array(self.swvec))
+        np.save((main_log_dir+"tt_last_5_day.npy"), np.array(self.tt_last_5_day))
         np.save((main_log_dir+"pricevec.npy"), np.array(self.pricevec))
         np.save((main_log_dir+"ttvec.npy"), np.array(self.ttvec))
         np.save((main_log_dir+"car_number.npy"), np.array(self.car_number_ls))
@@ -1641,7 +1644,7 @@ class Simulation():
 
 def main():
     scenario_ls = [
-                    # "NT", 
+                   # "NT", 
                    "Trinity_normal", 
                 #    "Trinity_step"
                    ]
@@ -1729,7 +1732,7 @@ def main():
             # Event-based simulation, reffering to Algorithm 1 in the paper
             # tollparams = [7.90084456*60, 65.01906779, 2.49667875] # mu, sigma, A
             # tollparams = [340.13974786,  70.        ,   4.4965179 ]
-            tollparams = [0.5547902096366654, -0.5903404805363967, -1.0]
+            tollparams = [ 0.23321407,  0.76213885, -0.02265058]
             scenario = 'Trinity' # simulate:'NT': no toll, 'CP': congestion price, 'Trinity'
             toll = 'normal' # 'step', 'normal'
             # only applies if scenario is Trinity

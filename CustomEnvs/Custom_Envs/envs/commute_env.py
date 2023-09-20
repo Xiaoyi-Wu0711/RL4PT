@@ -1,117 +1,16 @@
+# -*- coding:utf-8  -*-
+# Time  : 2023/09/18
+# Author: Xiaoyi Wu
 
-
-from collections import namedtuple
-from itertools import count
-import random
-import os, time
-import numpy as np
-
-import torch
-import torch.nn as nn
-from stable_baselines3.common.env_checker import check_env
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.distributions import Normal, Categorical
-from torch.utils.data.sampler import BatchSampler, SubsetRandomSampler
-from torch.utils.tensorboard import SummaryWriter
 from time import sleep
-import datetime
-import argparse
-import pickle
 from collections import namedtuple
-from itertools import count
 import random
-import os, time
-import numpy as np
-import sys
-import logging
+import os
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.distributions import Normal
-from torch.utils.data.sampler import BatchSampler, SubsetRandomSampler
-from torch.utils.tensorboard import SummaryWriter
-from time import sleep
-import datetime
-import random
 import numpy as np
 import pandas as pd
 from numba import njit, prange
-#IMPORTS
-import random
-import csv
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from stable_baselines3 import PPO, DDPG, TD3
-from stable_baselines3.common.noise import NormalActionNoise
-from stable_baselines3.common.env_util import SubprocVecEnv, DummyVecEnv
-from stable_baselines3.common.monitor import Monitor
-from stable_baselines3.common.vec_env import VecNormalize, VecFrameStack
-from stable_baselines3.common.evaluation import evaluate_policy
-from stable_baselines3.common.callbacks import EvalCallback
-import seaborn as sns
-
-
-import numpy as np
-from numba import njit, prange
-import pandas as pd
-import argparse
-import pickle
-from collections import namedtuple
-from itertools import count
-import random
-import os, time
-import numpy as np
-import sys
-import logging
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.distributions import Normal, Categorical
-from torch.utils.data.sampler import BatchSampler, SubsetRandomSampler
-from torch.utils.tensorboard import SummaryWriter
-from time import sleep
-import datetime
-import argparse
-import pickle
-from collections import namedtuple
-from itertools import count
-import random
-import os, time
-import numpy as np
-import sys
-import logging
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.distributions import Normal
-from torch.utils.data.sampler import BatchSampler, SubsetRandomSampler
-from torch.utils.tensorboard import SummaryWriter
-from time import sleep
-import datetime
-import random
-import numpy as np
-import pandas as pd
-from numba import njit, prange
-
-#IMPORTS
-import random
-import csv
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from stable_baselines3 import PPO, DDPG, TD3
-from stable_baselines3.common.noise import NormalActionNoise
-from stable_baselines3.common.env_util import SubprocVecEnv, DummyVecEnv
-from stable_baselines3.common.monitor import Monitor
-from stable_baselines3.common.vec_env import VecNormalize, VecFrameStack
-from stable_baselines3.common.evaluation import evaluate_policy
-from stable_baselines3.common.callbacks import EvalCallback, CheckpointCallback
-
 import gymnasium as gym
 from gymnasium import spaces
 
@@ -134,7 +33,7 @@ toll = 'normal' # 'step', 'normal'
 marketPrice = 1 # initial market price
 iter = 0
 gamma = 0.02
-state_aggravate = 5
+state_aggravate = 5 #specify the interval for state aggregation
 
 #print('state_space',state_space)
 # only applies if scenario is CP
@@ -210,8 +109,6 @@ def estimated_TT(all_time_matrix,  time_list, car_number, _Accumulation, dist, f
                     texp =dist/ffspeed * 60
                 else: # compute the travel speed between 2 consecutive events
                     V_list = np.array([V1(x) for x in Accumulation[user_in_the_network * 2 - len(known_ls): -1]])
-                    # print("known_ls.shape ", known_ls.shape)
-                    # print("V_list.shape ", V_list.shape)
                     # trip length traveled in each time interval between two consecutive events
                     len_piece = np.diff(known_ls) * V_list / 60
                     cum_len = np.cumsum(len_piece)
@@ -700,7 +597,7 @@ class Simulation():
         self.CV = _CV
         self.AR = _allocation['AR']
         self.decaying = _allocation['Decaying']
-        self.tradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)})
+        # self.tradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)})
         # self.flowdf = pd.DataFrame({'departure':np.zeros(self.numOfdays*self.numOfusers),'arrival':np.zeros(self.numOfdays*self.numOfusers),
         #   'user':np.tile(np.arange(self.numOfusers),self.numOfdays)})
         self.flow_array = np.zeros((self.numOfdays, self.numOfusers, 3)) # departure, arrival, user, travel time
@@ -1113,42 +1010,6 @@ class Simulation():
         print("peak arc elasticity by income: ", elas)
         print("peak arc elasticity tol: ",self.arcelasticity(sum(numbytval1),sum(numbytval2),p1,p2))
 
-
-
-
-
-# class RunningMeanStd:
-#     # Dynamically calculate mean and std
-#     def __init__(self, shape):  # shape:the dimension of input data
-#         self.n = 0
-#         self.mean = np.zeros(shape)
-#         self.S = np.zeros(shape)
-#         self.std = np.sqrt(self.S)
-
-#     def update(self, x):
-#         x = np.array(x)
-#         self.n += 1
-#         if self.n == 1:
-#             self.mean = x
-#             self.std = x
-#         else:
-#             old_mean = self.mean.copy()
-#             self.mean = old_mean + (x - old_mean) / self.n
-#             self.S = self.S + (x - old_mean) * (x - self.mean)
-#             self.std = np.sqrt(self.S / self.n )
-
-# class Normalization:
-#     def __init__(self, shape):
-#         self.running_ms = RunningMeanStd(shape)
-
-#     def update(self, x, update=True):
-#         # Whether to update the mean and std,during the evaluating,update=Flase
-#         if update:  
-#             self.running_ms.update(x)
-#         x = (x - self.running_ms.mean) / (self.running_ms.std + 1e-8)
-
-#         return x
-    
 class CommuteEnv(gym.Env): # env reset for each training/testing
         # Define initial parameters for the environment
     def __init__(self, simulation_day_num = 3, save_episode_freq = 9, train=True, save_dir = "./train_result/", space_shape=(4, int(12*60/5)) ):
@@ -1173,11 +1034,12 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         self.rw_eps = [] # step reward
         self.action_eps = [] # action change
         self.toll_eps = [] # toll profile
-
+        self.tt_last_5_eps = [] # record average AITT in last 5 days
         self.train = train
         # self.norm = Normalization(space_shape)
 
         self.tt_all_eps = [] # in all episodes
+        self.tt_last_5_all_eps = [] # in all episodes
         self.sw_all_eps = [] # in all episodes
         self.mp_all_eps = [] 
         self.rw_all_eps = []
@@ -1203,17 +1065,14 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
     # about the environment.   
     def reset(self, seed =  random.randint(0, 99999), options =None): # env reset for each episode
         super().reset(seed = self.seed)
-        if not self.first_episode: 
-            self.episode +=1
-        self.first_episode = False
-        print(" self.episode ", self.episode)
-        print("seed value ", self.seed)
+        #print(" self.episode-1", self.episode)
+        # print("seed value ", self.seed)
         self.set_seed(self.seed)
         info = self._get_info()
         # reset toll
-        self.toll_mu = random.random()*2 -1 # 
-        self.toll_sigma = random.random()*2 -1 # 
-        self.toll_A = random.random()*2 -1 # 
+        self.toll_mu = 0.23321407
+        self.toll_sigma =  0.76213885
+        self.toll_A = -0.02265058
         
         self.tt_eps = [] # daily average travel time
         self.sw_eps = [] # social welfare
@@ -1222,6 +1081,7 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         self.action_eps = [] # action toll profile
         self.price_eps = [] # token price
         self.toll_eps = []
+        self.tt_last_5_eps = [] # record average AITT in last 5 days
 
         self.sim = Simulation(_numOfdays= self.simulation_day_num, _user_params = user_params,
                             _scenario=scenario,_allowance=allowance, 
@@ -1243,7 +1103,7 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
             self.toll_mu = 1
         else:
             self.toll_mu+=action[0]
-
+        
         # 50, 70
         if 10*(self.toll_sigma+action[1])+60 < 50:
             self.toll_sigma = -1
@@ -1260,26 +1120,28 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
             self.toll_A += action[2]
 
         tollparameters = np.array([120*self.toll_mu+420, 10*self.toll_sigma+60, 2*self.toll_A+3])
+
         state_encode, vehicle_information, market_price, pt_share_number, sw  = self.sim.RL_simulateOneday(tollparameters, self.day, state_aggravate) # 5 days social welfare
         observation = state_encode.reshape(self.space_shape)
         
-        ASTT = np.mean(vehicle_information["t_exp"]) # average system travel time per day is 34min, 31min
-        reward = 80 - 2*ASTT 
-        # print(np.save("tmp.npy", vehicle_information["t_exp"]))
-        # print("ASTT ", ASTT)
+        AITT = np.mean(vehicle_information["t_exp"][-5:]) # average system travel time per day is 34min, 31min
+        reward = 80 - 2*AITT 
+   
         self.action_eps.append([action[0], action[1], action[2]])
         self.toll_eps.append(tollparameters)
         self.rw_eps.append(reward)
         self.sw_eps.append(sw)
         self.mp_eps.append(market_price)
+        self.tt_last_5_eps.append(AITT)
         self.tt_eps.append(np.mean(vehicle_information["t_exp"]))
         self.price_eps.append(self.sim.regulator.marketPrice)
-
         info = {}
+        
         # if it is the last step in the episode
         if self.day == self.simulation_day_num-1:
             done = True
             self.tt_all_eps.append(np.array(self.tt_eps))
+            self.tt_last_5_all_eps.append(np.array(self.tt_last_5_eps))
             self.sw_all_eps.append(np.array(self.sw_eps))
             self.mp_all_eps.append(np.array(self.mp_eps))
             self.rw_all_eps.append(np.array(self.rw_eps))
@@ -1290,24 +1152,26 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
             self.tokentrade_all_eps.append(np.array(self.sim.tokentrade_array))
             self.usertrade_all_eps.append(np.array(self.sim.usertrade_array))
 
-            if  (self.episode-1)% self.save_episode_freq == 0:
-                if self.train: 
+            if  (self.episode)% self.save_episode_freq == 0:
+                if self.train: # save the train result for each episode
                     save_dir = self.save_dir+"/train_result/"
-                else: 
+                else: # save the test results for each episode
                     save_dir = self.save_dir+"/test_result/"
                 isExist = os.path.exists(save_dir)
                 if not isExist:
                     os.makedirs(save_dir)
-                np.save((save_dir+str(self.episode+1)+"_ppo_toll.npy"), self.get_toll())
-                np.save((save_dir+str(self.episode+1)+"_ppo_tt.npy"), self.get_tt())
-                np.save((save_dir+str(self.episode+1)+"_ppo_sw.npy"), self.get_sw())
-                np.save((save_dir+str(self.episode+1)+"_ppo_mp.npy"), self.get_mp())
-                np.save((save_dir+str(self.episode+1)+"_ppo_rw.npy"), self.get_rw())
-                np.save((save_dir+str(self.episode+1)+"_ppo_action.npy"), self.get_action())    
-                np.save((save_dir+str(self.episode+1)+"_ppo_price.npy"), self.get_price()) 
-                np.save((save_dir+str(self.episode+1)+"_ppo_flow.npy"), self.get_flow())    
-                np.save((save_dir+str(self.episode+1)+"_ppo_usertrade.npy"), self.get_usertrade())    
-                np.save((save_dir+str(self.episode+1)+"_ppo_tokentrade.npy"), self.get_tokentrade())              
+                np.save((save_dir+str(self.episode)+"_ppo_toll.npy"), self.get_toll())
+                np.save((save_dir+str(self.episode)+"_ppo_tt_last_5.npy"), self.get_tt_last_5())
+                np.save((save_dir+str(self.episode)+"_ppo_tt.npy"), self.get_tt())
+                np.save((save_dir+str(self.episode)+"_ppo_sw.npy"), self.get_sw())
+                np.save((save_dir+str(self.episode)+"_ppo_mp.npy"), self.get_mp())
+                np.save((save_dir+str(self.episode)+"_ppo_rw.npy"), self.get_rw())
+                np.save((save_dir+str(self.episode)+"_ppo_action.npy"), self.get_action())    
+                np.save((save_dir+str(self.episode)+"_ppo_price.npy"), self.get_price()) 
+                np.save((save_dir+str(self.episode)+"_ppo_flow.npy"), self.get_flow())    
+                np.save((save_dir+str(self.episode)+"_ppo_usertrade.npy"), self.get_usertrade())    
+                np.save((save_dir+str(self.episode)+"_ppo_tokentrade.npy"), self.get_tokentrade())   
+            self.episode =   self.episode +1   
         else:
             done = False
         terminated = False
@@ -1332,6 +1196,9 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
 
     def get_tt(self):
         return np.array(self.tt_all_eps)
+
+    def get_tt_last_5(self):
+        return np.array(self.tt_last_5_all_eps)
 
     def get_sw(self):
         return np.array(self.sw_all_eps)

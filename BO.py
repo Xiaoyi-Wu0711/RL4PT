@@ -80,13 +80,13 @@ bounds = [{"name": "mu1", "type": "continuous", "domain": (-1, 1)},
           {"name": "A1", "type": "continuous", "domain":(-1, 1)},
           ]
 
-def bimodal_plot(x,mu1,sigma1,A1, mu2=0, sigma2=0, A2=0):
+def bimodal_plot(x,mu1,sigma1,A1):
     def custgauss(x,mu,sigma,A):
         mu = mu*120 + 420 # 300, 540
         sigma = sigma*10 + 60 # 50, 70
         A = A*2 + 3 # 1,5
         return A*np.exp(-(x-mu)**2/2/(sigma)**2)
-    return custgauss(x,mu1,sigma1,A1)+custgauss(x,mu2,sigma2,A2)
+    return custgauss(x,mu1,sigma1,A1)
 
 def gini(x):
     # (Warning: This is a concise implementation, but it is O(n**2)
@@ -1008,13 +1008,18 @@ class Simulation():
         self.CV = _CV
         self.AR = _allocation['AR']
         self.decaying = _allocation['Decaying']
-        self.tradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)})
-        self.flowdf = pd.DataFrame({'departure':np.zeros(self.numOfdays*self.numOfusers),
-                                      'arrival':np.zeros(self.numOfdays*self.numOfusers),
-                                    'user':np.tile(np.arange(self.numOfusers),self.numOfdays)
-                                    })
-        self.usertradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)}) # record user amount of trade behaviors
-        self.tokentradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)}) # record average token amount of trade behaviors
+        
+        self.flow_array = np.zeros((self.numOfdays, self.numOfusers, 3)) # departure, arrival, user, travel time
+        self.usertrade_array = np.zeros((self.numOfdays,self.hoursInA_Day*60, 2)) # buy and sell 
+        self.tokentrade_array = np.zeros((self.numOfdays, self.hoursInA_Day*60, 2)) # buy and sell 
+
+        # self.tradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)})
+        # self.flowdf = pd.DataFrame({'departure':np.zeros(self.numOfdays*self.numOfusers),
+        #                               'arrival':np.zeros(self.numOfdays*self.numOfusers),
+        #                             'user':np.tile(np.arange(self.numOfusers),self.numOfdays)
+        #                             })
+        # self.usertradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)}) # record user amount of trade behaviors
+        # self.tokentradedf = pd.DataFrame({'buy': np.zeros(self.hoursInA_Day*60),'sell': np.zeros(self.hoursInA_Day*60)}) # record average token amount of trade behaviors
 
         
         self.users = Travelers(self.numOfusers,_user_params=self.user_params,_allocation=_allocation,_fftt=_fftt,
@@ -1044,13 +1049,13 @@ class Simulation():
             (x>=x_step4)*(x<x_step5)*step4 + (x>=x_step5)*(x<x_step6)*step5 + (x>=x_step6)*(x<x_step1)*0
         return steptoll
 
-    def bimodal(self, x,mu1,sigma1,A1, mu2=0, sigma2=0, A2=0):
+    def bimodal(self, x,mu1,sigma1,A1):
         def custgauss(x,mu,sigma,A):
             mu = mu*120 + 420 # 300, 540
             sigma = sigma*10 + 60 # 50, 70
             A = A*2 + 3 # 1,5
             return A*np.exp(-(x-mu)**2/2/sigma**2)
-        return custgauss(x,mu1,sigma1,A1)+custgauss(x,mu2,sigma2,A2)
+        return custgauss(x,mu1,sigma1,A1)
 
     def simulate(self, tollparams, iter, toll = 'step'):
         # create time of day toll 
@@ -1267,18 +1272,30 @@ class Simulation():
                     userSell += np.where(tempuserSell>1e-6,tempuserSell*self.regulator.marketPrice*(1),0)
                     userSelltc += np.where(tempuserSell>1e-6,tempuserSell*self.regulator.marketPrice*(-self.PTCs)-self.FTCs,0)
         
-        self.usertradedf['buy'] = buyvec
-        self.usertradedf['sell'] = sellvec
-        self.tokentradedf['sell'] = sellamount
-        self.tokentradedf['buy'] = buyamount
+        # self.usertradedf['buy'] = buyvec
+        # self.usertradedf['sell'] = sellvec
+        # self.tokentradedf['sell'] = sellamount
+        # self.tokentradedf['buy'] = buyamount
+
+        self.usertrade_array[self.currday,:, 0] = buyvec
+        self.usertrade_array[self.currday,:, 1] = sellvec
+
+        self.tokentrade_array[self.currday,:, 0] = sellamount
+        self.tokentrade_array[self.currday,:, 1] = buyamount
 
         self.users.update_arrival(actualArrival)
-        self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers, 0] = np.maximum(self.users.predayDeparture-beginTime,-1)
-        self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers, 1] = np.maximum(actualArrival-beginTime,-1)
-        if self.currday>=1:
-            mask1 = self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers,0].values>0
-            mask2 = self.flowdf.iloc[(self.currday-1)*self.numOfusers:(self.currday)*self.numOfusers,0].values>0
-            self.flowconvergevec.append(np.linalg.norm(self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers,0].values[mask1&mask2]-self.flowdf.iloc[(self.currday-1)*self.numOfusers:(self.currday)*self.numOfusers,0].values[mask1&mask2]))
+
+        self.flow_array[self.currday, :, 0]  =  np.maximum(self.users.predayDeparture-beginTime,-1)
+        self.flow_array[self.currday, :, 1]  =  np.maximum(actualArrival-beginTime,-1)
+        self.flow_array[self.currday, :, 2]  =  np.where(self.flow_array[self.currday, :, 0]!=-1, self.flow_array[self.currday, :, 1] -  self.flow_array[self.currday, :, 0] , self.users.pttt)
+
+        # self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers, 0] = np.maximum(self.users.predayDeparture-beginTime,-1)
+        # self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers, 1] = np.maximum(actualArrival-beginTime,-1)
+        
+        # if self.currday>=1:
+        #     mask1 = self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers,0].values>0
+        #     mask2 = self.flowdf.iloc[(self.currday-1)*self.numOfusers:(self.currday)*self.numOfusers,0].values>0
+        #     self.flowconvergevec.append(np.linalg.norm(self.flowdf.iloc[self.currday*self.numOfusers:(self.currday+1)*self.numOfusers,0].values[mask1&mask2]-self.flowdf.iloc[(self.currday-1)*self.numOfusers:(self.currday)*self.numOfusers,0].values[mask1&mask2]))
 
         # day to day learning
         # update regulator account balance at the end of day
@@ -1375,6 +1392,7 @@ class Simulation():
             main_log_dir = "./output/MFD/NT/"
         if 	self.scenario =="Trinity":
             main_log_dir = "./output/MFD/Trinity/"
+
         np.save((main_log_dir+"swvec.npy"), np.array(self.swvec))
         np.save((main_log_dir+"pricevec.npy"), np.array(self.pricevec))
         np.save((main_log_dir+"ttvec.npy"), np.array(self.ttvec))
@@ -1382,9 +1400,9 @@ class Simulation():
         np.save((main_log_dir+"time_list.npy"),self.time_list_ls)
         np.save((main_log_dir+"travel_time.npy"), self.travel_time_ls)
         np.save((main_log_dir+"accumulation_list.npy"), self.Accumulation_ls)
-        self.flowdf.to_csv((main_log_dir+"flowdf.csv"))
-        self.tokentradedf.to_csv(main_log_dir+"tokentradedf.csv")
-        self.usertradedf.to_csv(main_log_dir+"usertradedf.csv")
+        # self.flowdf.to_csv((main_log_dir+"flowdf.csv"))
+        # self.tokentradedf.to_csv(main_log_dir+"tokentradedf.csv")
+        # self.usertradedf.to_csv(main_log_dir+"usertradedf.csv")
 
 
         #####
@@ -1690,7 +1708,7 @@ def main():
         iter = 0 
         for toll_param in lhs_df.values.tolist(): 
             tollparams = [toll_param[0], toll_param[1], toll_param[2]]
-            simulator = Simulation(_numOfdays= numOfdays, _user_params = user_params,
+            simulator = Simulation(_numOfdays = numOfdays, _user_params = user_params,
                             _scenario=scenario,_allowance=allowance, 
                             _marketPrice=marketPrice, _allocation = allocation,
                             _deltaP = deltaP, _numOfusers=numOfusers, _RBTD = RBTD, _Tstep=Tstep, 
@@ -1709,10 +1727,10 @@ def main():
         np.save("output/BO/x_step.npy", x_step)
 
     if optimize:
-
         y_step = np.load("output/BO/y_step.npy")
         x_step = np.load("output/BO/x_step.npy")
         toll_record = []
+        flow_record_array = np.zeros((iteration, numOfdays, numOfusers,3))# iter, num_of_day, user, 3 cols
         np.bool = np.bool_
         travel_time_converge = [] 
         for iter in range(iteration):
@@ -1727,7 +1745,6 @@ def main():
                                                         acquisition_weight = 2) # Selects the Expected improvement
             x_next = myBopt.suggest_next_locations()
             tmp = x_next[0]
-            print("tmp ", x_next)
             tollparams = [tmp[0], tmp[1], tmp[2]]
             toll_record.append(tollparams)
             simulator = Simulation(_numOfdays = numOfdays, _user_params = user_params,
@@ -1742,15 +1759,18 @@ def main():
                 total_travel_time = total_travel_time + np.sum(simulator.vehicle_information_ls[-i]["t_exp"])
             y_next = total_travel_time/(5*numOfusers)
             travel_time_converge.append(y_next)
-            
+            flow_record_array[iter, :, :, :] = simulator.flow_array
             x_step = np.vstack((x_step, x_next))
             y_step = np.vstack((y_step, y_next))
 
         travel_time_array = np.array(travel_time_converge) 
         toll_record_array =  np.array(toll_record)
+
         # np.save("output/BO/toll_record.npy", np.array(toll_record))
         np.save("./output/BO/toll_record.npy",toll_record_array)
+        np.save("./output/BO/flow_record_array.npy",flow_record_array)
         np.save("./output/BO/travel_time_converge.npy", travel_time_array)
+        
         optimal_index = np.argmin(travel_time_array)
         optimal_toll =toll_record_array[optimal_index, :]
         np.save("./output/BO/optimal_Travel_tt.npy", np.array(np.min(travel_time_array)))
@@ -1764,18 +1784,16 @@ def main():
         ax.tick_params(axis='y', labelsize= 20)
         fig.savefig('./plot/BO//travel time converge.png', dpi=fig.dpi)
 
-
         timeofday = np.arange(12*60) # the toll fees of the day
-        toll_profile = np.repeat(np.maximum(bimodal_plot(timeofday[np.arange(0, 12*60, 1)], *optimal_toll),0),1)
+        toll_profile = np.repeat(np.maximum(bimodal_plot(timeofday[np.arange(0, 12*60, 1)], *optimal_toll),0), 1)
         toll_profile = np.around(toll_profile, 2)
- 
+        label_context_1 = ("mu: ", int(optimal_toll[0]/60), " sigma: ", int(optimal_toll[1]/60), " A: ", int(optimal_toll[2]))
         fig, ax = plt.subplots(figsize=(12,9))
-        plt.plot(np.arange(200,720)/60, toll_profile[np.arange(200,720)], color='black')
+        plt.plot(np.arange(200,720)/60, toll_profile[np.arange(200,720)], color='black', label = label_context_1)
         ax.tick_params(axis='y', labelsize= 20)
         plt.ylabel('Toll ($)',fontsize = 25)
         plt.xlabel("Time (hr)",fontsize=25)
         plt.savefig('./plot/BO/toll profile.png')
-
 
 if __name__ == "__main__":
     start_time = time.time()

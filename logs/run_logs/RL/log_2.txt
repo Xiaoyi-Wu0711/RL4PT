@@ -1,0 +1,133 @@
+/Users/xiawu/py39/lib/python3.9/site-packages/stable_baselines3/ppo/ppo.py:148: UserWarning: You have specified a mini-batch size of 4, but because the `RolloutBuffer` is of size `n_steps * n_envs = 5`, after every 1 untruncated mini-batches, there will be a truncated mini-batch of size 1
+We recommend using a `batch_size` that is a factor of `n_steps * n_envs`.
+Info: (n_steps=5 and n_envs=1)
+  warnings.warn(
+/Users/xiawu/py39/lib/python3.9/site-packages/gymnasium/utils/passive_env_checker.py:175: UserWarning: [33mWARN: The default seed argument in `Env.reset` should be `None`, otherwise the environment will by default always be deterministic. Actual default: seed=49579[0m
+  logger.warn(
+ test pipeine
+start_time  Wed Sep 13 18:43:43 2023
+ learning_rate  0.001
+ Start training with total steps:  12
+Using cpu device
+Wrapping the env with a `Monitor` wrapper
+Wrapping the env in a DummyVecEnv.
+ self.episode-1 0
+Logging to ./results/PPO_Wed Sep 13 18:43:43 2023/tensorboards/PPO/first_run_1
+/Users/xiawu/RL4PT/CustomEnvs/Custom_Envs/envs/commute_env.py:180: NumbaExperimentalFeatureWarning: Use of isinstance() detected. This is an experimental feature.
+  if isinstance(x, list):
+/Users/xiawu/py39/lib/python3.9/site-packages/numba/core/ir_utils.py:2149: NumbaPendingDeprecationWarning: 
+Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument '_Accumulation' of function 'estimated_TT'.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+File "CustomEnvs/Custom_Envs/envs/commute_env.py", line 192:
+@njit(parallel=True)
+def estimated_TT(all_time_matrix,  time_list, car_number, _Accumulation, dist, ffspeed):
+^
+
+  warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
+/Users/xiawu/py39/lib/python3.9/site-packages/numba/core/ir_utils.py:2149: NumbaPendingDeprecationWarning: 
+Encountered the use of a type that is scheduled for deprecation: type 'reflected list' found for argument '__Accumulation' of function '__numba_parfor_gufunc_0x28ef029d0'.
+
+For more information visit https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-reflection-for-list-and-set-types
+
+File "<string>", line 1:
+<source missing, REPL/exec in use?>
+
+  warnings.warn(NumbaPendingDeprecationWarning(msg, loc=loc))
+ self.day  0
+ self.day  1
+ self.episode-2 0
+ 
+ self.episode-1 1
+ self.day  0
+ self.day  1
+ self.episode-2 1
+ 
+ self.episode-1 2
+ self.day  0
+---------------------------------
+| rollout/           |          |
+|    ep_len_mean     | 2        |
+|    ep_rew_mean     | 20.3     |
+| time/              |          |
+|    fps             | 0        |
+|    iterations      | 1        |
+|    time_elapsed    | 84       |
+|    total_timesteps | 5        |
+---------------------------------
+ self.day  1
+ self.episode-2 2
+ 
+ self.episode-1 3
+ self.day  0
+ self.day  1
+ self.episode-2 3
+ 
+ self.episode-1 4
+ self.day  0
+ self.day  1
+ self.episode-2 4
+ 
+ self.episode-1 5
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 2            |
+|    ep_rew_mean          | 19.2         |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 2            |
+|    time_elapsed         | 170          |
+|    total_timesteps      | 10           |
+| train/                  |              |
+|    approx_kl            | 0.0015203729 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.42        |
+|    explained_variance   | -0.118       |
+|    learning_rate        | 0.001        |
+|    loss                 | 166          |
+|    n_updates            | 2            |
+|    policy_gradient_loss | -9.87        |
+|    std                  | 0.997        |
+|    value_loss           | 270          |
+------------------------------------------
+ self.day  0
+ self.day  1
+ self.episode-2 5
+ 
+ self.episode-1 6
+ self.day  0
+ self.day  1
+ self.episode-2 6
+ 
+ self.episode-1 7
+ self.day  0
+------------------------------------------
+| rollout/                |              |
+|    ep_len_mean          | 2            |
+|    ep_rew_mean          | 18.3         |
+| time/                   |              |
+|    fps                  | 0            |
+|    iterations           | 3            |
+|    time_elapsed         | 255          |
+|    total_timesteps      | 15           |
+| train/                  |              |
+|    approx_kl            | 0.0014637113 |
+|    clip_fraction        | 0            |
+|    clip_range           | 0.2          |
+|    entropy_loss         | -1.41        |
+|    explained_variance   | 0.159        |
+|    learning_rate        | 0.001        |
+|    loss                 | 85.9         |
+|    n_updates            | 4            |
+|    policy_gradient_loss | -6.19        |
+|    std                  | 0.994        |
+|    value_loss           | 134          |
+------------------------------------------
+<bound method PPO.learn of <stable_baselines3.ppo.ppo.PPO object at 0x17efc30a0>>
+ 
+finish training!!!!!!!!!!!!!!!!!
+ 
+end_time  Wed Sep 13 18:47:59 2023
+total elapsed time  256.02053213119507
