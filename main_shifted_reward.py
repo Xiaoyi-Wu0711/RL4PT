@@ -1,173 +1,167 @@
-from collections import namedtuple
-from itertools import count
-import random
-import os, time
-import numpy as np
-import Custom_Envs
-import torch
-import torch.nn as nn
-from stable_baselines3.common.env_checker import check_env
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.distributions import Normal, Categorical
-from torch.utils.data.sampler import BatchSampler, SubsetRandomSampler
-from torch.utils.tensorboard import SummaryWriter
-from time import sleep
-import datetime
-import argparse
-import pickle
-from collections import namedtuple
-from itertools import count
-import random
-import os, time
-import numpy as np
-import sys
-import logging
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import torch.optim as optim
-from torch.distributions import Normal
-from torch.utils.data.sampler import BatchSampler, SubsetRandomSampler
-from torch.utils.tensorboard import SummaryWriter
-from time import sleep
-import datetime
-import random
-import numpy as np
-import pandas as pd
-from numba import njit, prange
-
-#IMPORTS
-import random
-import csv
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from stable_baselines3 import PPO, DDPG, TD3
-from stable_baselines3.common.noise import NormalActionNoise
-from stable_baselines3.common.env_util import SubprocVecEnv, DummyVecEnv
-from stable_baselines3.common.monitor import Monitor
-from stable_baselines3.common.vec_env import VecNormalize, VecFrameStack
-from stable_baselines3.common.evaluation import evaluate_policy
-from stable_baselines3.common.callbacks import EvalCallback, CheckpointCallback
-import seaborn as sns
-
-
-import numpy as np
-
-import gymnasium as gym
-from gymnasium import spaces
-from gymnasium.wrappers import NormalizeObservation
-
-import CustomEnvs
-
-def lrsched():
-  def reallr(progress):
-    lr = 0.001
-    if progress < 0.80:
-      lr = 0.0001
-    return lr
-  return reallr
-
-def main():
-    # todo
-    train = True
-    test = False
-    resume = False
-    one_dim = False
-    best_toll_initialization = False
-    reward_shifting = True
-    train_episode = 600
-    train_episode = train_episode+1
-    simulation_day_num = 30 # the simulation days in one iteration 
-    train_time_steps = int(simulation_day_num * train_episode)# total train times
-    evaluation_time_episode = 20 # evaluation times
-    checkpoint_save_episode = 30
-    save_episode_train = 50 # the episode number to save train results
-    save_episode_test = evaluation_time_episode 
-    learning_rate = 0.001
-    env_name = 'Custom_Envs/CommuteEnv-v4'
-    if resume:
-        resume_path = "PPO_Thu Sep 14 11:37:09 2023"
-        resume_count = " seventh run "
-        resume_step = 34200
-    # finish todo 
-
-    
-    if one_dim:
-        print(" one dim action ")
-    else:
-        print(" 3 dim actions")
-
-    if best_toll_initialization:
-        print(" Initialize with best toll  ")
-    if reward_shifting:
-        " shift reward based on average historic performance "
-    print(" env: ", env_name)
-    print(" learning_rate ", learning_rate)
-    if resume: 
-        resume_record = " resume from: " + resume_count + " "+resume_path + " "+str(resume_step) + "_steps"
-        print(resume_record)
-    if train: 
-        save_dir = "./results/PPO_"+time.asctime(time.localtime(start_time))
-        isExist = os.path.exists(save_dir)
-        if not isExist:
-            os.makedirs(save_dir)
-        print(" Start training with total steps: ", train_time_steps,)
-        env = gym.make(env_name,
-                simulation_day_num = simulation_day_num, 
-                save_episode_freq = save_episode_train, 
-                train=True, save_dir = save_dir, space_shape=(4, int(12*60/5)),
-                One_dim = one_dim, 
-                Best_toll_initialization = best_toll_initialization, 
-                Reward_shifting = reward_shifting
-            )
-        env = NormalizeObservation(env)
-        checkpoint_callback = CheckpointCallback(save_freq= int(checkpoint_save_episode*simulation_day_num), 
-                                                 save_path=(save_dir+"/logs/"), name_prefix="PPO")
-        if resume == True: 
-            model_path = "./results/" + resume_path +"/logs/PPO_"+str(resume_step)+"_steps"
-            model = PPO.load(model_path, print_system_info=True, env=env)
-            model.learn(total_timesteps = train_time_steps, callback = checkpoint_callback, reset_num_timesteps=False, tb_log_name= resume_count)
-            model.save(save_dir+"/logs/"+str(train_time_steps)+"_steps")
-        else:
-            model = PPO("MlpPolicy", env, learning_rate=learning_rate, n_steps=150, verbose=1, batch_size=30, 
-                        target_kl=0.05, n_epochs=40, gae_lambda=0.97,  ent_coef = 0.5, clip_range=0.2, gamma=0.99, 
-                        tensorboard_log=(save_dir+"/tensorboards/PPO/"))
-            model.learn(total_timesteps = train_time_steps, tb_log_name= "first_run", callback = checkpoint_callback)
-            model.save(save_dir+"/logs/"+str(train_time_steps)+"_steps")
-            print(model.learn)
-        # save_freq is the save frequency steps
-        print(" ")
-        print("finish training!!!!!!!!!!!!!!!!!")
-        print(" ")
-
-    if test: 
-        print(" Start testing with total eps: ", evaluation_time_episode)
-        env = gym.make(env_name, simulation_day_num = simulation_day_num, 
-                        save_episode_freq = save_episode_test, train=False, 
-                        save_dir = save_dir, 
-                        space_shape=(4, int(12*60/5)),
-                        One_dim = one_dim, 
-                        Best_toll_initialization = best_toll_initialization, 
-                        Reward_shifting = reward_shifting
-                        )
-        env = NormalizeObservation(env)        
-        for i in range(evaluation_time_episode):
-            done  = False
-            obs = env.reset()[0] 
-            while not done:  # every step has same seed
-                action = model.predict(obs, deterministic=True)
-                obs, reward, terminated, done, info = env.step(action[0])
-        print("finish test¡ng!!!!!!!!!!!!!!!!!")
-
-        
-if __name__ == "__main__":
-    start_time = time.time()
-    print("start_time ", time.asctime(time.localtime(start_time)))
-
-    main()
-
-    end_time = time.time()
-    print("end_time ",time.asctime(time.localtime(end_time)))
-    print("total elapsed time ",end_time-start_time)
+about-time==4.2.1
+absl-py==1.4.0
+aiohttp==3.8.5
+aiohttp-retry==2.8.3
+aiosignal==1.3.1
+alive-progress==3.1.4
+amqp==5.1.1
+antlr4-python3-runtime==4.9.3
+appdirs==1.4.4
+async-timeout==4.0.2
+asyncssh==2.13.2
+atpublic==4.0
+attrs==23.1.0
+autograd==1.6.2
+billiard==4.1.0
+cachetools==5.3.1
+celery==5.3.1
+certifi==2023.7.22
+cffi==1.15.1
+charset-normalizer==3.2.0
+click==8.1.6
+click-didyoumean==0.3.0
+click-plugins==1.1.1
+click-repl==0.3.0
+cloudpickle==2.2.1
+cma==3.2.2
+cmake==3.27.0
+colorama==0.4.6
+configobj==5.0.8
+contourpy==1.1.0
+cryptography==41.0.3
+cycler==0.11.0
+Deprecated==1.2.14
+dictdiffer==0.9.0
+dill==0.3.7
+diskcache==5.6.1
+distro==1.8.0
+docker-pycreds==0.4.0
+dpath==2.1.6
+dulwich==0.21.5
+dvc==3.11.1
+dvc-data==2.10.1
+dvc-gdrive==2.20.0
+dvc-http==2.30.2
+dvc-objects==0.24.1
+dvc-render==0.5.3
+dvc-studio-client==0.11.0
+dvc-task==0.3.0
+Farama-Notifications==0.0.4
+flatten-dict==0.4.2
+flufl.lock==7.1.1
+fonttools==4.42.0
+frozenlist==1.4.0
+fsspec==2023.6.0
+funcy==2.0
+future==0.18.3
+gitdb==4.0.10
+GitPython==3.1.32
+google-api-core==2.11.1
+google-api-python-client==2.95.0
+google-auth==2.22.0
+google-auth-httplib2==0.1.0
+google-auth-oauthlib==1.0.0
+googleapis-common-protos==1.60.0
+grandalf==0.8
+grapheme==0.6.0
+grpcio==1.56.2
+gym==0.26.2
+gym-notices==0.0.8
+gymnasium==0.28.1
+httplib2==0.22.0
+hydra-core==1.3.2
+idna==3.4
+iterative-telemetry==0.0.8
+jax-jumpy==1.0.0
+Jinja2==3.1.2
+kiwisolver==1.4.4
+kombu==5.3.1
+lit==16.0.6
+llvmlite==0.40.1
+Markdown==3.4.4
+markdown-it-py==3.0.0
+MarkupSafe==2.1.3
+matplotlib==3.7.2
+mdurl==0.1.2
+mo-gymnasium==1.0.1
+mpmath==1.3.0
+multidict==6.0.4
+nanotime==0.5.2
+networkx==3.1
+numba==0.57.1
+numpy==1.24.4
+nvidia-cublas-cu11==11.10.3.66
+nvidia-cuda-cupti-cu11==11.7.101
+nvidia-cuda-nvrtc-cu11==11.7.99
+nvidia-cuda-runtime-cu11==11.7.99
+nvidia-cudnn-cu11==8.5.0.96
+nvidia-cufft-cu11==10.9.0.58
+nvidia-curand-cu11==10.2.10.91
+nvidia-cusolver-cu11==11.4.0.1
+nvidia-cusparse-cu11==11.7.4.91
+nvidia-nccl-cu11==2.14.3
+nvidia-nvtx-cu11==11.7.91
+oauth2client==4.1.3
+oauthlib==3.2.2
+omegaconf==2.3.0
+orjson==3.9.2
+packaging==23.1
+pandas==2.0.3
+pathspec==0.11.2
+pathtools==0.1.2
+Pillow==10.0.0
+platformdirs==3.10.0
+prompt-toolkit==3.0.39
+protobuf==4.23.4
+psutil==5.9.5
+pyasn1==0.5.0
+pyasn1-modules==0.3.0
+pycparser==2.21
+pydot==1.4.2
+PyDrive2==1.16.1
+pygame==2.5.1
+pygit2==1.12.2
+Pygments==2.15.1
+pygtrie==2.5.0
+pymoo==0.6.0.1
+pyOpenSSL==23.2.0
+pyparsing==3.0.9
+python-dateutil==2.8.2
+pytz==2023.3
+PyYAML==6.0.1
+requests==2.31.0
+requests-oauthlib==1.3.1
+rich==13.5.2
+rsa==4.9
+ruamel.yaml==0.17.32
+ruamel.yaml.clib==0.2.7
+scmrepo==1.1.0
+sentry-sdk==1.30.0
+setproctitle==1.3.2
+Shimmy==1.2.1
+shortuuid==1.0.11
+shtab==1.6.4
+six==1.16.0
+smmap==5.0.0
+sqltrie==0.7.0
+stable-baselines3==2.0.0
+sympy==1.12
+tabulate==0.9.0
+tensorboard==2.13.0
+tensorboard-data-server==0.7.1
+tomlkit==0.12.1
+torch==2.0.1
+tqdm==4.65.0
+triton==2.0.0
+typing_extensions==4.7.1
+tzdata==2023.3
+uritemplate==4.1.1
+urllib3==1.26.16
+vine==5.0.0
+voluptuous==0.13.1
+wandb==0.15.9
+wcwidth==0.2.6s
+Werkzeug==2.3.6
+wrapt==1.15.0
+yarl==1.9.2
+zc.lockfile==3.0.post1

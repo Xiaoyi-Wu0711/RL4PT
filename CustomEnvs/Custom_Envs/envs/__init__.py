@@ -1,1 +1,7 @@
+from Custom_Envs.envs.commute_env_vanilla import CommuteEnv_vanilla
+from Custom_Envs.envs.commute_env_reward_shifting import CommuteEnv_reward_shifting
+from Custom_Envs.envs.commute_env_one_dim_action import CommuteEnv_one_dim_action
+from Custom_Envs.envs.commute_env_initialialize_best_toll import CommuteEnv_initialize_best_toll
 from Custom_Envs.envs.commute_env import CommuteEnv
+from Custom_Envs.envs.commute_env_subprocess import SubProcess_CommuteEnv
+

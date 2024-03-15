@@ -1,10 +1,5 @@
-README.md
 setup.py
-Custom_Envs/__init__.py
 Custom_Envs.egg-info/PKG-INFO
 Custom_Envs.egg-info/SOURCES.txt
 Custom_Envs.egg-info/dependency_links.txt
 Custom_Envs.egg-info/top_level.txt
-Custom_Envs/envs/__init__.py
-Custom_Envs/envs/commute_env.py
-Custom_Envs/wrappers/__init__.py
