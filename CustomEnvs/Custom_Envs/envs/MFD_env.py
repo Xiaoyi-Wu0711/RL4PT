@@ -845,10 +845,10 @@ class MFD_simulation():
 
             # has filtered pt transit
             departured_car_index = np.where((departure_time>=start_t) & (departure_time<finish_t))
-            if np.any(departured_car_index[0]) :
+            if np.any(departured_car_index[0]):
                 mean_travel_time = np.mean(travel_time[departured_car_index])# get the average mean accumulation in this time interval
-            else :
-                mean_travel_time = 0 
+            else:
+                mean_travel_time = self.fftt
             average_tt[tmp] = mean_travel_time # get the average mean travel time
  
             if self.scenario == 'Trinity':
@@ -926,8 +926,8 @@ class MFD_simulation():
         buy_state = np.zeros(shape =144)
 
         for j in range(144):
-            tt_state[j] = np.mean(average_accumulation[j*5:(j+1)*5])  
-            accumulation_state[j] = np.mean(average_tt[j*5:(j+1)*5])  
+            tt_state[j] = np.mean(average_tt[j*5:(j+1)*5])  
+            accumulation_state[j] = np.mean(average_accumulation[j*5:(j+1)*5])  
             sell_state[j] = np.mean(sellvec[j*5:(j+1)*5])  
             buy_state[j] = np.mean(buyvec[j*5:(j+1)*5])  
 
