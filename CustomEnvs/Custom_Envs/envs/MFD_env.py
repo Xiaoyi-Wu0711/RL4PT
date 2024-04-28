@@ -1,7 +1,7 @@
 import pandas as pd
 from numba import njit, prange
 import numpy as np
-
+import math
 
 ffspeed = 45
 capacity = 7000
@@ -54,7 +54,7 @@ def estimated_TT(all_time_matrix,  time_list, car_number, _Accumulation, dist, f
                 count = 0
                 left_len = dist- ffspeed /60 * (known_ls[0] - start_time) # compute the left trip length till the first real traveler enter 
                 if left_len < 0: # this fictional traveler end his trip before the first real traveler enter the network
-                    texp =dist/ffspeed * 60
+                    texp = dist/ffspeed * 60
                 else: # compute the travel speed between 2 consecutive events
                     V_list = np.array([V1(x) for x in Accumulation[user_in_the_network * 2 - len(known_ls): -1]])
                     # trip length traveled in each time interval between two consecutive events
@@ -104,9 +104,19 @@ class Travelers():
     # sell and buy
     # compute user account 
     # distance is asummed to be 16miles
-    def __init__(self,_numOfusers,_user_params,_allowance,_allocation,_scenario,_hoursInA_Day = 12,_Tstep = 1,
-                _fftt=24, _dist=18, _choiceInterval = 60, _seed=333,_unusual=False,_CV=True,_numOfdays=50, 
-                input_save_dir="tmp/"):
+    def __init__(self,_numOfusers,
+                  _user_params,_allowance,
+                  _allocation,_scenario,
+                  _hoursInA_Day = 12,
+                  _Tstep = 1,
+                  _fftt=24, 
+                  _dist=18, 
+                  _choiceInterval = 60, 
+                  _seed=333,
+                  _unusual=False,
+                  _CV=True,_numOfdays=50, 
+                  input_save_dir = "tmp/", 
+                ):
 
         self.AR = _allocation['AR']
         self.ARway = _allocation['way'] # It means that the allocation or distribution is made as a one-time, whole amount, rather than being spread out over a period of time or divided into smaller installments.
@@ -149,7 +159,8 @@ class Travelers():
         # initialize user accounts
         self.userAccounts = np.zeros(self.numOfusers)+self.AR*self.hoursInA_Day*60
         self.distribution = np.zeros(self.numOfusers) # modify the allowance distribution for each user based on the defined policy.
-          
+        self.toll_parameter = np.array([0,  0.1921139*120+420, 10*0.31822232+60])
+
     def interpolatePDT(self):
         x = np.array([390, 405, 420, 435, 450, 465, 480, 495, 510, 525 ,540, 555], dtype=float)
         # from https://link.springer.com/article/10.1007/s11116-016-9750-2
@@ -245,22 +256,31 @@ class Travelers():
             
             tautilde = np.zeros(1+len(possibleDepartureTimes)) # estimated travel time
             tautilde[0] = self.pttt
+            # A = self.toll_parameter[0]
+            # A_floor = math.floor(A)
+            # if int(A_floor)==7:
+            #     A_floor = 6
             tautilde[1:] =self.predictedTT[user, mask]
+            # tautilde[1:] =self.predictedTT[A_floor, user, mask]
 
             Th = np.zeros(1+len(possibleDepartureTimes)) # Current toll fees
             Th[0] = self.ptfare
             Th[1:] = toll[possibleDepartureTimes] 
             if self.ARway == "continuous":
                 possibleAB = x[user, possibleDepartureTimes] #possible account balance
+            
             SDE = np.zeros(1+len(possibleDepartureTimes))
             SDE[1:] = np.maximum(0,tstar-(possibleDepartureTimes+tautilde[1:]+self.Tstep/2)) # use middle point of time interval to calculate SDE
+            
             SDL = np.zeros(1+len(possibleDepartureTimes))
             SDL[1:] = np.maximum(0,(possibleDepartureTimes+tautilde[1:]+self.Tstep/2)-tstar)# use middle point of time interval to calculate SDL
+           
             ASC = np.zeros(len(utileps)) # Alternative Specific Constant." It represents a constant term in a discrete choice model that captures the systematic factors affecting the utility of an alternative (choice)
+            
             W = np.zeros(1+len(possibleDepartureTimes)) # waiting time
             W[0] = 1/2*self.ptheadway
 
-            sysutil_t = ASC+(-2*vot *tautilde  - sde * SDE - sdl * SDL-2*vow*W) # for all day, double travel time but not sde and sdl
+            sysutil_t = ASC+(-2*vot*tautilde - sde * SDE - sdl * SDL-2*vow*W) # for all day, double travel time but not sde and sdl
         
             ch = np.zeros(len(utileps))	#the expected cost, equals to opportunity cost plus operation cosT
             if self.scenario == 'Trinity':
@@ -360,10 +380,9 @@ class Travelers():
             self.predictedTT = np.load(self.unusual['read'])
             self.actualTT =  np.load(self.unusual['read'])
         else:
-            self.predictedTT = np.zeros((self.numOfusers, 2 * self.choiceInterval + 1))
-            self.actualTT = np.zeros((self.numOfusers, 2 * self.choiceInterval + 1))
-            self.predictedTT[:] = self.fftt
-            self.actualTT [:] = self.fftt
+            self.predictedTT = self.fftt * np.ones((self.numOfusers, 2 * self.choiceInterval + 1))
+            # self.predictedTT = self.fftt * np.ones((7, self.numOfusers, 2 * self.choiceInterval + 1))
+            self.actualTT = self.fftt * np.ones((self.numOfusers, 2 * self.choiceInterval + 1))
 
         self.desiredDeparture = self.desiredArrival-self.fftt # generate desired departure time: user_len 1-d array 
         self.DepartureLowerBD = self.desiredDeparture-self.choiceInterval
@@ -455,7 +474,7 @@ class Travelers():
         return a_index
     
 
-    # realize selling and buying behavior
+    # get 0-1 index for all users, indicating their selling and buying behavior
     def sell_and_buy(self, _t, _currToll, _toll, _price, _totTime):
 
         FW = self.hoursInA_Day*60*self.AR
@@ -512,6 +531,7 @@ class Travelers():
             # handle paying toll and buying
             self.userAccounts[~mask_cansell] = np.maximum((self.userAccounts-_currToll)[~mask_cansell],0)
             self.userAccounts[~mask_cansell] = np.minimum(self.userAccounts[~mask_cansell]+self.AR,FW) # add new allocation and cap it at FW
+            
             # handle do nothing (expire oldest tokens if reach maximum life time and get new allocation)
             mask_donothing = ~(mask_sellnow | ~mask_cansell)
             self.userAccounts[mask_donothing] = np.minimum(self.userAccounts[mask_donothing]+self.AR,FW)
@@ -530,21 +550,31 @@ class Travelers():
         self.actualArrival = actualArrival
 
     # perform day to day learning
-    def d2d(self):
-        self.predictedTT = 0.9*self.predictedTT + 0.1*self.actualTT 
-        c_perceived =  self.predictedTT
-        c_cs = self.actualTT
-        self.norm_list.append(np.linalg.norm(c_perceived-c_cs,ord=1)/self.numOfusers)
+    def d2d(self, day):
+        # A = self.toll_parameter[0]
+        # # print("A: ", str(A))
+        # A_floor = math.floor(A)
+        # if int(A_floor)==7:
+        #     A_floor = 6
+        # self.predictedTT[A_floor, :, :] = 0.9*self.predictedTT[A_floor, :, :] + 0.1*self.actualTT[:] 
+        self.predictedTT[ :, :] = 0.9 * self.predictedTT[ :, :] + 0.1*self.actualTT[:] 
+        
+        # np.save("old_perceived_method/predictedTT_"+str(day)+".npy", self.predictedTT)     
+        # np.save("old_perceived_method/actualTT_"+str(day)+".npy", self.actualTT)     
 
-class Regulator():
+        # c_perceived =  self.predictedTT
+        # c_cs = self.actualTT
+        # self.norm_list.append(np.linalg.norm(c_perceived-c_cs,ord=1)/self.numOfusers)
+
+class Regulator(): 
    # regulator account balance
-    def __init__(self, marketPrice=1, RBTD = 100, deltaP = 0.05):
+    def __init__(self, marketPrice = 1, RBTD = 100, deltaP = 0.05):
         self.RR = 0
         self.tollCollected = 0
         self.allowanceDistributed = 0
         self.marketPrice = marketPrice
-        self.RBTD = 100  # a constant threshold
-        self.deltaP = 0.05
+        self.RBTD = RBTD  # a constant threshold
+        self.deltaP = deltaP
 
     # update regulator account
     def update_balance(self,userToll,userReceive):
@@ -561,7 +591,8 @@ class Regulator():
         elif self.RR < -self.RBTD:
             self.marketPrice -= self.deltaP
 
-
+        # self.marketPrice = 1
+        
 class MFD_simulation():
     # simulate one day
 
@@ -587,7 +618,7 @@ class MFD_simulation():
                   _choiceInterval=60,                  
                   _input_save_dir = "tmp",
                   _fftt  = 24, 
-                  _seed = 333
+                  _seed = 333,
                 ):
         self.numOfdays = _numOfdays
         self.hoursInA_Day = _hoursInA_Day
@@ -618,11 +649,13 @@ class MFD_simulation():
         self.choiceInterval = _choiceInterval
         self.toll_type = toll_type
         self.input_save_dir = _input_save_dir
-       
+            
+        self.toll_parameter = np.array([0, 0.1921139*120+420, 10*0.31822232+60])
+
         self.users = Travelers(self.numOfusers,
-                               _user_params=self.user_params,
-                               _allocation=_allocation,
-                               _fftt=_fftt,
+                               _user_params = self.user_params,
+                               _allocation = _allocation,
+                               _fftt = _fftt,
                                _hoursInA_Day=_hoursInA_Day,
                                _Tstep=self.Tstep,
                                _allowance=self.allowance,
@@ -632,14 +665,14 @@ class MFD_simulation():
                                _CV = _CV,
                                _numOfdays = _numOfdays,
                                _choiceInterval = self.choiceInterval,
-                               input_save_dir= self.input_save_dir
+                               input_save_dir= self.input_save_dir,
                             )
         self.users.generate_params()
-        self.regulator = Regulator(_marketPrice,_RBTD,_deltaP)
+        self.regulator = Regulator(_marketPrice, _RBTD, _deltaP)
         self.originalAtt = {}
         self.presellAfterdep = np.zeros(self.numOfusers,dtype=int)
         timeofday = np.arange(self.hoursInA_Day*60)
-        self.toll = np.array([0]*len(timeofday))
+        self.toll = np.array([0]*len(timeofday)) # store the toll fees for 720 min
         self.capacity = capacity
         self.toll_type = toll_type
 
@@ -656,8 +689,10 @@ class MFD_simulation():
         return toll_profile
 
     # get the toll fee
-    def bimodal(self,x, A, mu, sigma):
-        # print(" A ", A)
+    def bimodal(self, x):
+        A = self.toll_parameter[0]
+        mu = self.toll_parameter[1]
+        sigma = self.toll_parameter[2]
         toll_profile = A*np.exp(-(x-mu)**2/2/(sigma)**2)
         return toll_profile
 
@@ -712,6 +747,7 @@ class MFD_simulation():
         t_ls.append(S_Event_list_array[0, 1])  # initial time
 
         while S_Event_list_array.shape[0] > 0: 
+
             j = j + 1
             t_ls.append(S_Event_list_array[0, 1])
             Event_index = int(S_Event_list_array[0, 0])
@@ -873,8 +909,8 @@ class MFD_simulation():
                     userSelltc += np.where(tempuserSell>1e-6,tempuserSell*self.regulator.marketPrice*(-self.PTCs)-
                                                             (self.regulator.marketPrice*(-self.PTCs)*self.AR*(tempuserSell/self.AR)**2/(2*self.hoursInA_Day*60))-self.FTCs,0)
                 else:
-                    userSell += np.where(tempuserSell>1e-6,tempuserSell*self.regulator.marketPrice*(1),0)
-                    userSelltc += np.where(tempuserSell>1e-6,tempuserSell*self.regulator.marketPrice*(-self.PTCs)-self.FTCs,0)
+                    userSell += np.where(tempuserSell>1e-6, tempuserSell*self.regulator.marketPrice*(1),0)
+                    userSelltc += np.where(tempuserSell>1e-6, tempuserSell*self.regulator.marketPrice*(-self.PTCs)-self.FTCs, 0)
 
         self.usertrade_array[self.currday,:, 0] = buyvec
         self.usertrade_array[self.currday,:, 1] = sellvec
@@ -884,7 +920,7 @@ class MFD_simulation():
 
         self.users.update_arrival(actualArrival)
  
-        self.flow_array[self.currday, :, 0]  =  np.maximum(self.users.predayDeparture-beginTime,-1)
+        self.flow_array[self.currday, :, 0]  =  np.maximum(self.users.predayDeparture-beginTime, -1)
         self.flow_array[self.currday, :, 1]  =  np.maximum(actualArrival-beginTime, -1)
         self.flow_array[self.currday, :, 2]  =  np.where(self.flow_array[self.currday, :, 0]!=-1, 
                                                          self.flow_array[self.currday, :, 1] -  self.flow_array[self.currday, :, 0], 
@@ -909,11 +945,11 @@ class MFD_simulation():
         sw, tt_util, sde_util, sdl_util, ptwaiting_util, I_util, userBuy_util, userSell_util, fuelcost_util = self.calculate_sw()
 
         if self.unusual['unusual'] and self.currday == self.unusual['day']:
-            self.users.d2d()
+            self.users.d2d(self.currday)
             self.regulator.marketPrice = self.originalAtt['price']
         else:
             # d2d learnining
-            self.users.d2d()
+            self.users.d2d(self.currday)
             if self.scenario == 'Trinity':
                 # update token price
                 self.regulator.update_price()	
@@ -970,7 +1006,7 @@ class MFD_simulation():
         # else:
         #     print(" not this type of state_shape")
         #     exit(1)
-        return tt_state, accumulation_state, sell_state, buy_state, market_price, pt_share_number, market_price, pt_share_number, sw, tt_util, sde_util, sdl_util, ptwaiting_util, I_util, userBuy_util, userSell_util, fuelcost_util
+        return tt_state, accumulation_state, sell_state, buy_state, pt_share_number, market_price, sw, tt_util, sde_util, sdl_util, ptwaiting_util, I_util, userBuy_util, userSell_util, fuelcost_util
     
     # calculate social welfare value
     def calculate_sw(self):
@@ -984,6 +1020,7 @@ class MFD_simulation():
         fuelcost = np.where(self.users.predayDeparture!=-1, self.users.dist/self.users.mpg*self.users.fuelprice, self.users.ptfare)
         ASC = np.zeros(self.numOfusers)
         ptwaitingtime = np.where(self.users.predayDeparture!=-1,0 ,self.users.ptheadway)
+        
         util = ASC + (-2 * self.users.vot * TT - self.users.sde * SDE - self.users.sdl * SDL - self.users.waiting * ptwaitingtime
              + self.user_params['lambda'] * np.log(self.user_params['gamma'] + self.users.I - 2 * self.userBuy + 2 * self.userSell + 2 * allowance - 2 * fuelcost)
              + self.users.I - 2 * self.userBuy + 2 * self.userSell + 2 * allowance - 2 * fuelcost) + self.users.predayEps

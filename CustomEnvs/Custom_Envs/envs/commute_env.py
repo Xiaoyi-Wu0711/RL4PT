@@ -81,24 +81,14 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
                                             shape=action_shape, dtype=np.float32)
         # self.observation_space = spaces.Box(low = -99999, high = 99999,\
         #                                     shape = state_shape, dtype = np.float64) # include more observations for a broader observation space
-        # self.observation_space = gym.spaces.Dict({
-        #     "tt": gym.spaces.Box(low = -9999, high = 9999, shape = (state_shape[1], ), dtype = np.float64),
-        #     "accumulation": gym.spaces.Box(low = -9999, high = 9999, shape = (state_shape[1], ), dtype = np.float64),
-        #     "buy": gym.spaces.Box(low = -9999, high = 9999, shape = (state_shape[1], ), dtype = np.float64),
-        #     "sell": gym.spaces.Box(low = -9999, high = 9999, shape = (state_shape[1], ), dtype = np.float64),
-        #     "current_a": gym.spaces.Box(low = 0, high = 7, shape = (1, ), dtype = np.float64),
-        #     "sigma": gym.spaces.Box(low = 0, high = 10, shape = (1,), dtype = np.float64),
-        # })
-
         self.observation_space = gym.spaces.Dict({
+            "tt": gym.spaces.Box(low = -9999, high = 9999, shape = (state_shape[1], ), dtype = np.float64),
             "accumulation": gym.spaces.Box(low = -9999, high = 9999, shape = (state_shape[1], ), dtype = np.float64),
+            "buy": gym.spaces.Box(low = -9999, high = 9999, shape = (state_shape[1], ), dtype = np.float64),
+            "sell": gym.spaces.Box(low = -9999, high = 9999, shape = (state_shape[1], ), dtype = np.float64),
             "current_a": gym.spaces.Box(low = 0, high = 7, shape = (1, ), dtype = np.float64),
-            "price": gym.spaces.Box(low = 0, high = 4, shape = (1,), dtype = np.float64),
             "sigma": gym.spaces.Box(low = 0, high = 10, shape = (1,), dtype = np.float64),
         })
-
-
-
         self.allocation = Allocation
         self.render_mode = False
         self.episode_in_one_eval = episode_in_one_eval
@@ -118,7 +108,7 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         self.action_eps = [] # action change
         self.toll_eps = [] # toll profile
         self.pt_eps = [] # pt profile
-        self.tt_interval_eps = np.zeros((self.simulation_day_num+1, 144))
+        self.A_eps = np.zeros(self.simulation_day_num+1)
 
         self.tt_all_eps = [] # in all episodes
         self.tt_last_5_day_all_eps = [] # in all episodes
@@ -132,9 +122,9 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         self.tokentrade_all_eps = []
         self.convergence_all_eps = []
         self.pt_all_eps = [] # toll profile
-        self.tt_interval_all_eps = []
+        self.A_all_eps = []
 
-        self.tt_interval_one_eval = [] 
+        self.A_one_eval = [] 
         self.tt_one_eval = []   # record tt in 5-episode evaluation
         self.tt_last_5_day_one_eval = []  
         self.sw_one_eval = []  
@@ -144,7 +134,7 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         self.toll_one_eval = []  
         self.pt_one_eval = []  
         
-        self.tt_interval_all_eps_eval = []
+        self.A_all_eps_eval = []
         self.tt_all_eps_eval = []  
         self.tt_last_5_day_all_eps_eval = [] # last-5-day AITT in all eval episodes
         self.sw_all_eps_eval = [] 
@@ -180,13 +170,12 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
         self.action_eps = [] # action change
         self.toll_eps = [] # A profile
         self.pt_eps = [] # pt change
-        self.tt_interval_eps = np.zeros((self.simulation_day_num+1, 144))
-
+        self.A_eps = np.zeros(self.simulation_day_num+1)
 
         if self.initialization == "random":
             self.toll_mu = random.random()*2 -1
             self.toll_sigma =  random.random()*2 -1
-            self.toll_A = random.random()*2 -1
+            self.toll_A = random.random()*7  
 
         elif self.initialization == "NT":
             self.toll_mu = random.random()*2 -1
@@ -262,24 +251,20 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
                             toll_type = self.toll_type,
                             _choiceInterval = self._choiceInterval
                         )
+
         toll_parameter = np.array([self.toll_A, 443.05, 53.180])
-        self.tt_interval_eps[0] = np.zeros(144)
+        self.A_eps[0] = self.toll_A
         tt_state, accumulation_state, sell_state, buy_state, market_price, pt_share_number, market_price, pt_share_number, sw, tt_util, sde_util, sdl_util, ptwaiting_util, I_util, userBuy_util, userSell_util, fuelcost_util = self.sim.RL_simulateOneday(self.day, state_aggravate, self.state_shape) # 5 days social welfare
-        sigma_tt_interval = 0
-        # observation  = {
-        #    "tt": np.array(tt_state, dtype = np.float64), 
-        #    "accumulation": np.array(accumulation_state, dtype = np.float64), 
-        #    "buy": np.array(buy_state, dtype = np.float64), 
-        #    "sell": np.array(sell_state, dtype = np.float64),
-        #    "current_a": np.array([self.toll_A], dtype = np.float64),
-        #    "sigma": np.array([sigma_tt_interval],  dtype = np.float64),
-        # }
+        sigma_action = 0
         observation  = {
+            "tt": np.array(tt_state, dtype = np.float64), 
            "accumulation": np.array(accumulation_state, dtype = np.float64), 
+           "buy": np.array(buy_state, dtype = np.float64), 
+           "sell": np.array(sell_state, dtype = np.float64),
            "current_a": np.array([self.toll_A], dtype = np.float64),
-           "price": np.array([market_price],  dtype = np.float64),
-           "sigma": np.array([sigma_tt_interval],  dtype = np.float64),
+           "sigma": np.array([sigma_action],  dtype = np.float64),
         }
+
         self.tt_eps.append(np.mean(self.sim.flow_array[self.day, :, 2]))
         self.sw_eps.append(sw)
         self.mp_eps.append(market_price)
@@ -305,8 +290,6 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
                 "userSell_util": userSell_util, 
                 "fuelcost_util": fuelcost_util
                 }
-
-        # print(" observation " ,observation)
         
         return observation, info
     
@@ -393,29 +376,23 @@ class CommuteEnv(gym.Env): # env reset for each training/testing
             self.sim.toll = np.around(self.sim.toll, 2)
             # print("toll_parameter ", toll_parameter)
 
+        self.A_eps[self.day + 1] = toll_parameter[0]
         tt_state, accumulation_state, sell_state, buy_state, market_price, pt_share_number, market_price, pt_share_number, sw, tt_util, sde_util, sdl_util, ptwaiting_util, I_util, userBuy_util, userSell_util, fuelcost_util = self.sim.RL_simulateOneday(self.day, state_aggravate, self.state_shape) # 5 days social welfare
-        
-        self.tt_interval_eps[self.day + 1] = tt_state
-
+                
         if self.day < 4:
-            sigma_tt_interval = np.std(self.tt_interval_eps[:self.day+2], axis=0)
+            sigma_action =  np.std(self.A_eps[:self.day+2])
         else:
-            sigma_tt_interval = np.std(self.tt_interval_eps[self.day-3:self.day+2], axis=0)
-        
-        print("sigma_tt_interval ", sigma_tt_interval)
-        print(" self.tt_interval_eps ", self.tt_interval_eps)
+            sigma_action =  np.std(self.A_eps[self.day-3:self.day+2])
 
         observation  = {
             "tt": np.array(tt_state, dtype = np.float64), 
-            "accumulation": np.array(accumulation_state, dtype = np.float64), 
-            "buy": np.array(buy_state, dtype = np.float64), 
-            "sell": np.array(sell_state, dtype = np.float64),
-            "current_a": np.array([self.toll_A], dtype = np.float64),
-            "sigma": np.array([sigma_tt_interval],  dtype = np.float64),
+           "accumulation": np.array(accumulation_state, dtype = np.float64), 
+           "buy": np.array(buy_state, dtype = np.float64), 
+           "sell": np.array(sell_state, dtype = np.float64),
+           "current_a": np.array([self.toll_A], dtype = np.float64),
+           "sigma": np.array([sigma_action],  dtype = np.float64),
         }
-        
-
-        # print("observatio")
+        # print("observatio
         AITT_daily = np.mean(self.sim.flow_array[self.day, :, 2]) # calculate the average travel time on day 
         
         tmp = self.sim.flow_array[self.day]
