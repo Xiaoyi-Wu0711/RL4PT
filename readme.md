@@ -2,7 +2,7 @@ This is a customed environment based on Gymnasium, which is composed of macrosco
 
 To install the package in local computer: 
 `pip install -e CustomEnvs`
-`pip -r requirements.txt`
+`pip install -r requirements.txt`
 
 To use the package:
 `import Custom_Envs`
