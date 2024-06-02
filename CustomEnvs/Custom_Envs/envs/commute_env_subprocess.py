@@ -19,7 +19,7 @@ RBTD = 100
 Plot = False
 verbose = True
 # Policy: False, uniform, personalizedCap, personalizedNocap
-numOfusers = 7500
+numOfusers = 8625
 marketPrice = 1 # initial market price
 gamma = 0.02
 state_aggravate = 5 #specify the interval for state aggregation
@@ -100,8 +100,6 @@ class SubProcess_CommuteEnv(gym.Env): # env reset for each training/testing
             "price": gym.spaces.Box(low = 0, high = 4, shape = (1,), dtype = np.float64),
             # "sigma": gym.spaces.Box(low = 0, high = 40, shape = (144,), dtype = np.float64), # vector of tt state
         })
-
-
         self.allocation = Allocation
         self.render_mode = False
         self.episode_in_one_eval = episode_in_one_eval
@@ -450,10 +448,23 @@ class SubProcess_CommuteEnv(gym.Env): # env reset for each training/testing
             else:
                 reward = - AITT_daily + 45
 
-        elif self.reward_scheme == "fftt":
+        elif self.reward_scheme == "fftt_minus_pt":
             # reward = - AITT_daily/self.sim.fftt  - self.std_weights *  np.mean(sigma_tt_interval)
             # reward = - AITT_daily/self.sim.fftt
-            reward = - AITT_daily/self.sim.fftt - self.pt_weights *  pt_share_number/numOfusers
+            reward = (- AITT_daily/self.sim.fftt - self.pt_weights *  pt_share_number/numOfusers) /100
+
+        elif self.reward_scheme == "fftt_plus_pt":
+            reward = (- AITT_daily/self.sim.fftt + self.pt_weights *  pt_share_number/numOfusers)/100
+
+        elif self.reward_scheme == "triangle":
+            # reward = - AITT_daily/self.sim.fftt  - self.std_weights *  np.mean(sigma_tt_interval)
+            # reward = - AITT_daily/self.sim.fftt
+            if pt_share_number > numOfusers/10:
+                pt_reward = - (pt_share_number - numOfusers/10)/numOfusers
+            else:
+                pt_reward = - (numOfusers/10 - pt_share_number)/numOfusers
+            
+            reward = (- AITT_daily/self.sim.fftt + self.pt_weights * pt_reward)/100
 
         elif self.reward_scheme == "Weighted_reward":
             reward = (- AITT_daily/self.sim.fftt  - self.std_weights * np.mean(sigma_tt_interval))/self.reward_weight
@@ -500,7 +511,44 @@ class SubProcess_CommuteEnv(gym.Env): # env reset for each training/testing
                     "fuelcost_util": fuelcost_util
                 }
         
-        if (self.mode == "train") or (self.mode == "simulation"):
+        if (self.mode == "train"):
+            # if it is the last step in the episode
+            if self.day == self.simulation_day_num-1:
+                self.tt_all_eps.append(np.array(self.tt_one_eps)) # record 30-day simulation AITT
+                self.tt_interval_all_eps.append(np.array(self.tt_interval_one_eps)) # record 30-day simulation AITT
+                self.tt_last_5_day_all_eps.append(np.mean(np.array(self.tt_one_eps)[-5:])) # only record the average AITT of last 5 days
+                self.sw_all_eps.append(np.array(self.sw_one_eps))
+                self.mp_all_eps.append(np.array(self.mp_one_eps))
+                self.rw_all_eps.append(np.array(self.rw_one_eps))
+                self.action_all_eps.append(np.array(self.action_one_eps))
+                self.toll_all_eps.append(np.array(self.toll_one_eps))
+                # self.flow_all_eps.append(np.array(self.sim.flow_array))
+                self.tokentrade_all_eps.append(np.array(self.sim.tokentrade_array))
+                self.usertrade_all_eps.append(np.array(self.sim.usertrade_array))
+                self.convergence_all_eps.append(np.array(self.sim.users.norm_list))
+                self.pt_all_eps.append(np.array(self.pt_one_eps))
+                # print(" training episode ", self.episode)
+
+                if  (self.episode+1) % self.save_episode_freq == 0:
+                    np.save((self.save_dir+"tt_interval.npy"),(np.array(self.tt_interval_all_eps)))
+                    np.save((self.save_dir+"toll.npy"), self.get_toll())
+                    np.save((self.save_dir+"tt_last_5_day.npy"), self.get_tt_last_5_day())
+                    np.save((self.save_dir+"tt.npy"), self.get_tt())
+                    np.save((self.save_dir+"pt.npy"), self.get_pt())
+                    np.save((self.save_dir+"sw.npy"), self.get_sw())
+                    np.save((self.save_dir+"mp.npy"), self.get_mp())
+                    np.save((self.save_dir+"rw.npy"), self.get_rw())
+                    np.save((self.save_dir+"action.npy"), self.get_action())    
+                    # np.save((self.save_dir+"flow.npy"), self.get_flow())    
+                    np.save((self.save_dir+"usertrade.npy"), self.get_usertrade())    
+                    np.save((self.save_dir+"tokentrade.npy"), self.get_tokentrade())   
+                    np.save((self.save_dir+"convergence.npy"), self.get_convergence())  
+
+                self.episode =  self.episode +1   
+
+                done = True
+
+        elif (self.mode == "simulation"):
             # if it is the last step in the episode
             if self.day == self.simulation_day_num-1:
                 self.tt_all_eps.append(np.array(self.tt_one_eps)) # record 30-day simulation AITT
