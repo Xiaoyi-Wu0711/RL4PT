@@ -5,6 +5,7 @@ import math
 
 ffspeed = 45
 capacity = 7000
+# print(" capacity in MFD ", capacity)
 
 def gini(x):
     # (Warning: This is a concise implementation, but it is O(n**2)
@@ -256,12 +257,12 @@ class Travelers():
             
             tautilde = np.zeros(1+len(possibleDepartureTimes)) # estimated travel time
             tautilde[0] = self.pttt
-            # A = self.toll_parameter[0]
-            # A_floor = math.floor(A)
-            # if int(A_floor)==7:
-            #     A_floor = 6
-            tautilde[1:] =self.predictedTT[user, mask]
-            # tautilde[1:] =self.predictedTT[A_floor, user, mask]
+            A = self.toll_parameter[0]
+            A_floor = math.floor(A)
+            if int(A_floor)==7:
+                A_floor = 6
+            # tautilde[1:] =self.predictedTT[user, mask]
+            tautilde[1:] =self.predictedTT[A_floor, user, mask]
 
             Th = np.zeros(1+len(possibleDepartureTimes)) # Current toll fees
             Th[0] = self.ptfare
@@ -380,8 +381,7 @@ class Travelers():
             self.predictedTT = np.load(self.unusual['read'])
             self.actualTT =  np.load(self.unusual['read'])
         else:
-            self.predictedTT = self.fftt * np.ones((self.numOfusers, 2 * self.choiceInterval + 1))
-            # self.predictedTT = self.fftt * np.ones((7, self.numOfusers, 2 * self.choiceInterval + 1))
+            self.predictedTT = self.fftt * np.ones((7, self.numOfusers, 2 * self.choiceInterval + 1))
             self.actualTT = self.fftt * np.ones((self.numOfusers, 2 * self.choiceInterval + 1))
 
         self.desiredDeparture = self.desiredArrival-self.fftt # generate desired departure time: user_len 1-d array 
@@ -391,6 +391,8 @@ class Travelers():
         y = np.repeat([self.desiredDeparture], 2*self.choiceInterval+1, axis=1)
         z = y.reshape(-1,2*self.choiceInterval+1)
         x = np.repeat([range(-self.choiceInterval, self.choiceInterval+1)], self.numOfusers, axis=0)
+        # print("x.shape ", x.shape )
+        # print("z.shape ", z.shape )
         self.all_time_matrix = z+x # desired departure time with choice interval 
         
         # initialize predayDeparture:  store the chosen departure time for each user on the previous day.
@@ -551,24 +553,25 @@ class Travelers():
 
     # perform day to day learning
     def d2d(self, day):
-        # A = self.toll_parameter[0]
-        # # print("A: ", str(A))
-        # A_floor = math.floor(A)
-        # if int(A_floor)==7:
-        #     A_floor = 6
-        # self.predictedTT[A_floor, :, :] = 0.9*self.predictedTT[A_floor, :, :] + 0.1*self.actualTT[:] 
-        self.predictedTT[ :, :] = 0.9 * self.predictedTT[ :, :] + 0.1*self.actualTT[:] 
+        A = self.toll_parameter[0]
+        # print("A: ", str(A))
+        A_floor = math.floor(A)
+        if int(A_floor)==7:
+            A_floor = 6
+        self.predictedTT[A_floor, :, :] = 0.9*self.predictedTT[A_floor, :, :] + 0.1*self.actualTT[:] 
         
-        # np.save("old_perceived_method/predictedTT_"+str(day)+".npy", self.predictedTT)     
-        # np.save("old_perceived_method/actualTT_"+str(day)+".npy", self.actualTT)     
+        
+        # np.save("new_perceived_method/predictedTT_"+str(day)+".npy", self.predictedTT)     
+        # np.save("new_perceived_method/actualTT_"+str(day)+".npy", self.actualTT)     
 
         # c_perceived =  self.predictedTT
         # c_cs = self.actualTT
         # self.norm_list.append(np.linalg.norm(c_perceived-c_cs,ord=1)/self.numOfusers)
 
-class Regulator(): 
+
+class Regulator():
    # regulator account balance
-    def __init__(self, marketPrice = 1, RBTD = 100, deltaP = 0.05):
+    def __init__(self, marketPrice=1, RBTD = 100, deltaP = 0.05):
         self.RR = 0
         self.tollCollected = 0
         self.allowanceDistributed = 0
@@ -590,9 +593,8 @@ class Regulator():
             self.marketPrice += self.deltaP
         elif self.RR < -self.RBTD:
             self.marketPrice -= self.deltaP
-
         # self.marketPrice = 1
-        
+
 class MFD_simulation():
     # simulate one day
 
@@ -650,7 +652,7 @@ class MFD_simulation():
         self.toll_type = toll_type
         self.input_save_dir = _input_save_dir
             
-        self.toll_parameter = np.array([0, 0.1921139*120+420, 10*0.31822232+60])
+        self.toll_parameter = np.array([0,  0.1921139*120+420, 10*0.31822232+60])
 
         self.users = Travelers(self.numOfusers,
                                _user_params = self.user_params,
@@ -828,7 +830,7 @@ class MFD_simulation():
     def RL_simulateOneday(self, day, state_aggravate, state_shape):
         self.currday = day
         beginTime = day*self.hoursInA_Day*60
-        totTime =  (day+1)*self.hoursInA_Day*60
+        totTime = (day+1)*self.hoursInA_Day*60
         self.users.update_choice_MFD(self.toll, 
                                      self.regulator.marketPrice, 
                                      self.currday, 
@@ -920,7 +922,7 @@ class MFD_simulation():
 
         self.users.update_arrival(actualArrival)
  
-        self.flow_array[self.currday, :, 0]  =  np.maximum(self.users.predayDeparture-beginTime, -1)
+        self.flow_array[self.currday, :, 0]  =  np.maximum(self.users.predayDeparture-beginTime,-1)
         self.flow_array[self.currday, :, 1]  =  np.maximum(actualArrival-beginTime, -1)
         self.flow_array[self.currday, :, 2]  =  np.where(self.flow_array[self.currday, :, 0]!=-1, 
                                                          self.flow_array[self.currday, :, 1] -  self.flow_array[self.currday, :, 0], 
