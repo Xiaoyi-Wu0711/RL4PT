@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --job-name=RL_MFD
+#SBATCH --time=48:00:00
+#SBATCH --partition=workq
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=32
+#SBATCH --output=/home/xiawu/RL4PT/logs/hpc_log/RL_MFD/Output_%J_%I.out
+#SBATCH --error=/home/xiawu/RL4PT/logs/hpc_log/RL_MFD/Output_%J_%I.err
+#SBATCH --mail-user=xiawu@dtu.dk
+#SBATCH --mail-type=END # Send email when the job finishes
+
+module load Python/3.10.4-GCCcore-11.3.0 
+source  .virtualenvs/py310/bin/activate
+
+python3 RL4PT/RL_MFD.py
+
