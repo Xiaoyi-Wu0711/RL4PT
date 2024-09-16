@@ -17,3 +17,6 @@ Reference:
 
 4. run: 
 python3 main_hyperparam.py --experiment_name "check optimization function setup" --one_dim True --best_toll_initialization False --reward_shifting True --absolute_change_mode False --n_trial 100 --train_episode 20 --simulation_day_num 30 --evaluation_time_episode 20 --model_param "ppo"
+
+5. Run with slurm:
+SBATCH main.job
