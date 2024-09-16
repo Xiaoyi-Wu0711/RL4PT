@@ -1,3 +1,5 @@
+Warning: this code is not ready to use. 
+
 This is a customed environment based on Gymnasium, which is composed of macroscopic fundamental diagram(MFD) and tradable credit systems(TCS). 
 
 To install the package in local computer: 
